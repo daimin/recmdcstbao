@@ -7,7 +7,7 @@
 """
 
 from flask import json
-import mmstats.lib.token
+import lib.token
 from flask import json
 import time
 

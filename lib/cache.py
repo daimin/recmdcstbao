@@ -3,7 +3,7 @@
 #encoding=utf-8
 """缓存
 """
-from mmstats import conf, comm
+import conf, comm
 import datetime
 import time
 import os

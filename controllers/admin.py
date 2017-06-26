@@ -19,13 +19,9 @@ from wtforms import form, fields, validators
 from flask_admin.contrib.mongoengine import ModelView
 
 
-from mmstats import comm
-from mmstats import conf 
-from mmstats import lib
-from mmstats.models.AppMamaquanLastvisitToken import AppMamaquanLastvisitToken
-from mmstats.models.AppHuaiyunLastvisitToken import AppHuaiyunLastvisitToken
-from mmstats.models.LogFileStat import LogFileStat
-from mmstats.models.UpdateQueueStat import UpdateQueueStat
+import comm
+import conf 
+import lib
 
 import os
 import datetime

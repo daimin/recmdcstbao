@@ -3,5 +3,4 @@
 #encoding=utf-8
 
 from push import *
-from fmbk import *
-from admin import *
+#from admin import *

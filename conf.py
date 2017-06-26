@@ -27,9 +27,9 @@ redis = {
         }
 
 
-log_dir = os.path.realpath(os.path.join(os.path.dirname(__file__), "../logs"))
+log_dir = os.path.realpath(os.path.join(os.path.dirname(__file__), "logs"))
 
-cache_dir = os.path.realpath(os.path.join(os.path.dirname(__file__), "../cache"))
+cache_dir = os.path.realpath(os.path.join(os.path.dirname(__file__), "cache"))
 
 ## $platforms = array(1 => 'ios', 2 => 'android', 3 => 'qzone',4=>'web',5=>'ipad');
 ## 平台

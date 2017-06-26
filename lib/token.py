@@ -5,7 +5,7 @@
 """
 import time
 import operator
-from mmstats import conf, comm
+import conf, comm
 
 _first_check = True
 
