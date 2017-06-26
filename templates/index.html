@@ -1,0 +1,181 @@
+{% extends 'admin/master.html' %}
+
+{% block body %}
+<div id="container">
+    <div class="row">
+        <div id="container-alllog"></div>
+    </div>
+    <br/>
+    <div class="row">
+        <div id="container-log"></div>
+    </div>
+    <br/>
+    <div class="row">
+        <div id="container-updatequeue"></div>
+    </div>
+</div>
+
+{% endblock %}
+{% block access_control %}
+{% endblock %}
+{% block tail_js %}
+{{super()}}
+<script type="text/javascript" src="/static/highcharts-4.0.1.js"></script>
+<script type="text/javascript">
+    $(function () {
+    $('#container-alllog').highcharts({
+        chart: {
+            type: 'column'
+        },
+        title: {
+            text: '日志解析情况'
+        },
+        xAxis: {
+           categories: {{ initcategories |safe }}
+        },
+        yAxis: {
+            min: 0,
+            title: {
+                text: '次'
+            }
+        },
+        tooltip: {
+            headerFormat: '<div style="font-size:10px;font-weight:bold;margin-bottom:6px;">{point.key}</div>',
+            shared: true,
+            useHTML: true
+        },
+        plotOptions: {
+            column: {
+                pointPadding: 0.2,
+                borderWidth: 0
+            }
+        },
+        series: {{ logdata|safe }}
+    });
+
+            Highcharts.setOptions({
+                global: {
+                    useUTC: false
+                }
+            });
+
+var load_highcharts_updatequeue = function(initseries){
+        //var chart = new Highcharts.Chart(
+        return new Highcharts.Chart({
+            chart: {
+                renderTo: "container-updatequeue",
+                type: 'area',
+                animation: Highcharts.svg, // don't animate in old IE
+                marginRight: 10,
+                events: {
+                    load: function() {
+                        // set up the updating of the chart each second
+                        var series = this.series;
+                        setInterval(function() {
+                            jQuery.get( "/admin/updatequeue/timly", function( data ){
+
+                                for(var i = 0; i < series.length; i++){
+                                    //series[i].addPoint([time, Math.random() * 5000], true, true);
+                                    var sname = series[i].name;
+                                    var sk = $.trim((sname.split(":"))[1]);
+                                    var ssdata = data[sk];
+                                    if(ssdata) {
+                                        series[i].addPoint([ssdata['x'], ssdata['y']], true, true);
+                                        series[i].addPoint([ssdata['x'], ssdata['y']], true, true);
+                                    }
+
+                                }
+
+                            }, 'json');
+
+                        }, 5000);
+                    }
+                }
+            },
+            colors: [
+                '#F47983',
+                '#4B5CC4',
+                '#C9DD22',
+                '#0EB83A',
+                '#1aadce',
+                '#f28f43',
+                '#77a1e5',
+                '#c42525',
+                '#a6c96a'
+            ],
+            title: {
+                text: '更新队列处理情况(各进程)'
+            },
+            xAxis: {
+                type: 'datetime',
+                maxZoom: 50000, // fourteen days
+                tickPixelInterval: 100
+            },
+            yAxis: {
+                title: {
+                    text: '个'
+                },
+                plotLines: [{
+                    value: 0,
+                    width: 1,
+                    color: '#808080'
+                }]
+            },
+            tooltip: {
+                formatter: function() {
+                    return '<b>'+ this.series.name +'</b><br>'+
+                            Highcharts.dateFormat('%Y-%m-%d %H:%M:%S', this.x) +'<br>'+
+                            Highcharts.numberFormat(this.y, 2);
+                }
+            },
+            legend: {
+                enabled: true
+            },
+            plotOptions: {
+                area: {
+                    fillColor: {
+                        linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1},
+                        stops: [
+                            [0, Highcharts.getOptions().colors[0]],
+                            [1, Highcharts.Color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                        ]
+                    },
+                    lineWidth: 0.8,
+                    marker: {
+                        enabled: false
+                    },
+                    shadow: false,
+                    states: {
+                        hover: {
+                            lineWidth: 1
+                        }
+                    },
+                    threshold: null
+                }
+            },
+            exporting: {
+                enabled: false
+            },
+            series: initseries
+        });
+    };
+
+    jQuery.get( "/admin/updatequeue/init", function( data ) {
+            var okeys = Object.keys(data);
+            var sess = [];
+            for(var i = 0; i < okeys.length; i++){
+                var sk = okeys[i];
+                sess.push({"name": "进程: " + sk});
+            }
+            var tab = load_highcharts_updatequeue(sess);
+            for(var i = 0; i < okeys.length; i++){
+                //tab.series[i].name = okeys[i]+"";
+                tab.series[i].setData(data[okeys[i]]);
+            }
+            //tab.redraw();
+    }, type='json');
+
+    load_highcharts_updatequeue();
+});
+</script>
+{% endblock %}

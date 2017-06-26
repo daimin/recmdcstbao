@@ -1,0 +1,246 @@
+{% extends 'admin/master.html' %}
+{% block body %}
+
+<link href="/static/jsonFormater.css" type="text/css" rel="stylesheet"/>
+<link href="/static/bootstrap-datetimepicker.min.css" type="text/css" rel="stylesheet"/>
+<style type="text/css">
+    .table-condensed>tbody>tr>th,.table-condensed>tbody>tr>td {
+      padding:2px;
+    }
+
+    .col-padding0{
+       padding-left:0px;
+       padding-right:0px;
+    }
+
+
+</style>
+<div class="panel panel-default">
+      <!-- Default panel contents -->
+      <div class="panel-heading">用户条件查询</div>
+      <div class="panel-body">
+          <form id="search-form">
+               <div class="row">
+                  <div class="form-group col-lg-4">
+                     <label class="control-label ">平台:</label>
+                     <div>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id="inlineCheckbox1" name="platform" value="1" checked> iPhone
+                        </label>
+                        <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox2" name="platform" value="5" checked> iPad
+                        </label>
+                        <label class="checkbox-inline">
+                          <input type="checkbox" id="inlineCheckbox3" name="platform" value="2" checked> Android
+                        </label>
+                     </div>
+                  </div>
+                 <div class="form-group col-lg-4">
+                     <label for="uid-select" class="control-label">UID:</label>
+                     <div>
+                         <select class="form-control input-sm" name="uid-select" id="uid-select">
+                            <option value="all">全部</option>
+                            <option value="1">有</option>
+                            <option value="0">无</option>
+                         </select>
+                     </div>
+                  </div>
+                 <div class="form-group col-lg-4">
+                     <label for="devtoken-select" class="control-label">devicetoken:</label>
+                     <div>
+                         <select class="form-control input-sm" name="devtoken-select" id="devtoken-select">
+                            <option value="all">全部</option>
+                            <option value="1">有</option>
+                            <option value="0">无</option>
+                         </select>
+                     </div>
+                  </div>
+               </div>
+              <div class="row">
+                  <div class="form-group col-lg-4 ">
+                         <label for="bbtags" class="control-label">状态:</label>
+                         <div id="bbtags-div">
+                            <label class="checkbox-inline">
+                            <input type="checkbox" id="bbtags" name="bbtags" value="1" checked> 备孕
+                            </label>
+                            <label class="checkbox-inline">
+                              <input type="checkbox"  name="bbtags" value="2" checked> 怀孕
+                            </label>
+                            <label class="checkbox-inline">
+                              <input type="checkbox" name="bbtags" value="3" checked> 有宝宝
+                            </label>
+                             <label class="checkbox-inline">
+                              <input type="checkbox" name="bbtags" value="4" checked> 其它
+                            </label>
+                         </div>
+                  </div>
+                  <div class="form-group col-lg-4">
+                     <label for="t-input-start" class="control-label col-lg-12 col-padding0">创建时间:</label>
+                      <div class="input-append date form_datetime col-lg-5 col-padding0" id="t-input-start-div">
+                          <input class="form-control input-sm" type="text" name="t-start" id="t-input-start" placeholder="创建时间" />
+                          <span class="add-on"><i class="icon-th"></i></span>
+                      </div>
+                      <div class="col-lg-1 col-padding0" style="text-align:center"> - </div>
+                      <div class="input-append date form_datetime col-lg-5 col-padding0" id="t-input-end-div">
+                          <input class="form-control input-sm" type="text" name="t-end" id="t-input-end" placeholder="创建时间"  />
+                          <span class="add-on"><i class="icon-th"></i></span>
+                      </div>
+                   </div>
+                  <div class="form-group col-lg-4 ">
+                     <label for="ut-input-start" class="control-label col-lg-12 col-padding0">更新时间:</label>
+                      <div class="input-append date form_datetime col-lg-5 col-padding0" id="ut-input-start-div">
+                          <input class="form-control input-sm" type="text" name="ut-start" id="ut-input-start" placeholder="更新时间" />
+                          <span class="add-on"><i class="icon-th"></i></span>
+                      </div>
+                      <div class="col-lg-1 col-padding0" style="text-align:center"> - </div>
+                      <div class="input-append date form_datetime col-lg-5 col-padding0" id="ut-input-end-div">
+                          <input class="form-control input-sm" type="text" name="ut-end" id="ut-input-end" placeholder="更新时间"  />
+                          <span class="add-on"><i class="icon-th"></i></span>
+                      </div>
+                   </div>
+
+             </div>
+              <div class="row">
+                 <div class="form-group col-lg-4">
+                 <label for="bbbirth-input-start" class="control-label col-lg-12 col-padding0">宝宝生日:</label>
+                  <div class="input-append date form_datetime col-lg-5 col-padding0" id="bbbirth-input-start-div">
+                      <input class="form-control input-sm" type="text" name="bbbirth-start" id="bbbirth-input-start" placeholder="宝宝生日" />
+                      <span class="add-on"><i class="icon-th"></i></span>
+                  </div>
+                  <div class="col-lg-1 col-padding0" style="text-align:center"> - </div>
+                  <div class="input-append date form_datetime col-lg-5 col-padding0" id="bbbirth-input-end-div">
+                      <input class="form-control input-sm" type="text" name="bbbirth-end" id="bbbirth-input-end" placeholder="宝宝生日" />
+                      <span class="add-on"><i class="icon-th"></i></span>
+                  </div>
+               </div>
+                  <div class="col-lg-4">
+                         <label for="bbbirth-input-start" class="control-label col-lg-12 col-padding0">应用名称:</label>
+                         <div class="input-group-btn">
+                            <button type="button" class="btn btn-primary dropdown-toggle" id="search-btn" data-toggle="dropdown" aria-expanded="false">&nbsp;应用名称&nbsp;<span class="caret"></span></button>
+                            <ul class="dropdown-menu" role="menu">
+                              <li><a href="javascript:void(0)" onclick="dosearch('mmq', this)">&nbsp;妈妈圈</a></li>
+                              <li><a href="javascript:void(0)" onclick="dosearch('pt', this)">怀孕管家</a></li>
+                            </ul>
+                         </div>
+                   </div>
+              </div>
+          </form>
+          <br/>
+      </div>
+
+      <!-- Table -->
+      <table class="table table-striped table-hover" id="result-tab">
+        <thead>
+          <tr>
+            <th>查询结果</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+              <td>
+                  "{}"
+              </td>
+         </tr>
+        </tbody>
+      </table>
+</div>
+{% endblock %}
+{% block tail_js %}
+{{super()}}
+<script type="text/javascript" src="/static/jsonFormater.js"></script>
+<script type="text/javascript" src="/static/admin.js"></script>
+<script type="text/javascript" src="/static/bootstrap-datetimepicker.min.js"></script>
+<script type="text/javascript" src="/static/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<script type="text/javascript">
+$(function(){
+   render_format_json();
+   init_date_controls();
+});
+
+function init_date_controls(){
+    var datedivs = ['t-input-', 'ut-input-', 'bbbirth-input-'];
+    var dirs = ['start', 'end'];
+    for(var i = 0; i < datedivs.length; i++){
+        for(var j = 0; j < dirs.length; j++){
+            var iid = "#" + datedivs[i] + dirs[j] + "-div";
+            $(iid).datetimepicker({
+                language: "zh-CN",
+                format: "yyyy-mm-dd",
+                autoclose: true,
+                minView: "month",
+                pickerPosition: "bottom-right"
+            });
+        }
+    }
+}
+
+
+var render_format_json = function(){
+    var result_tab = $("#result-tab");
+    var tds = result_tab.find("tbody > tr > td");
+    $.each(tds, function(i, o){
+        var options = {
+           dom: o
+        };
+        var jf = new JsonFormater(options);
+        jf.doFormat($(o).text());
+    });
+};
+
+function dosearch(app, o){
+    var formobj = $("#search-form");
+    var searchBtn = $("#search-btn");
+    searchBtn.html("&nbsp;" + $(o).html() + "&nbsp;" + '<span class="caret"></span>');
+
+    if(app == "pt"){
+        $("#bbtags-div").hide(200);
+    }else{
+        $("#bbtags-div").show(200);
+    }
+    var params = {"app": app};
+
+    var get_form_fields = function(field_type){
+      $.each(formobj.find(field_type), function(i, o){
+        var name = $(o).attr('name');
+        var val = $(o).val();
+        var checked = $(o).attr("checked");
+
+        if(($(o).is("input:checked") && $(o).attr("type") == "checkbox") || $(o).attr("type") != "checkbox"){
+            if(val != null && val.length > 0){
+              if(params[name]){
+                 if(typeof params[name] == "object"){
+                    params[name].push(val);
+                 } else {
+                    params[name] = [params[name], val];
+                 }
+              } else {
+                 params[name] = val;
+              }
+            }
+        }
+
+      });
+    };
+
+    get_form_fields("input");
+    get_form_fields("select");
+
+    if(Object.keys(params).length == 0){
+        return;
+    }
+    var mmMark = new MMMask();
+    mmMark.add();
+    $.get("/admin/usercondsearch/s/", params, function(data){
+        mmMark.remove();
+        var tbody = $("#result-tab").find("tbody").first();
+        tbody.empty();
+        if(!data){
+            tbody.append('<tr><td>"{}"</td></tr>')
+        }
+
+        tbody.append('<tr><td>' + JSON.stringify(data) + '</td></tr>')
+        render_format_json();
+    }, type="json");
+}
+</script>
+{% endblock %}

@@ -1,0 +1,235 @@
+{% extends 'admin/master.html' %}
+{% block body %}
+<div class="row" style="margin-bottom:20px;margin-top:12px;">
+     <div class="col-lg-10">
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#adduser" data-whatever="@adduser">添加新用户</button>
+     </div>
+</div>
+<div class="row">
+    <div class="col-lg-11">
+      <table class="table table-striped table-hover col-lg-10" id="result-tab">
+        <thead>
+          <tr>
+            <th>登录名</th>
+            <th>邮箱</th>
+            <th>注册日期</th>
+            <th>登录日期</th>
+            <th>操作</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for user in users: %}
+          <tr>
+              <td>
+                  {{user.login}}
+              </td>
+              <td>
+                  {{user.email}}
+              </td>
+              <td>
+                  {{user.t|formatdate}}
+              </td>
+              <td>
+                  {{user.ut|formatdate}}
+              </td>
+              <td>
+                  <a href="javascript:void(0)" onclick="modifypassword('{{user.login}}', '{{user.id}}')">修改密码</a>
+                  {% if user.login != "admin" %}
+                  | <a href="javascript:void(0)" onclick="deleteuser('{{user.id}}')">删除</a>
+                  {% endif %}
+              </td>
+         </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+    </div>
+</div>
+
+
+<div class="modal fade" id="adduser" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-keyboard="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">添加新用户</h4>
+      </div>
+        <div class="row" style="padding-left: 20px;">
+          <div class="modal-body col-lg-11">
+            <form id="adduser-form">
+              <div class="form-group">
+                <label for="login" class="control-label">登录名:</label>
+                <input type="text" tabindex="1" class="form-control" name="login" id="login" data-toggle="tooltip" data-placement="top" title="用户名不能为空">
+              </div>
+              <div class="form-group">
+                <label for="email" class="control-label">邮箱:</label>
+                  <input type="email" tabindex="2" class="form-control" name="email" id="email" data-toggle="tooltip" data-placement="top" title="email不能为空">
+              </div>
+              <div class="form-group">
+                  <label for="password" class="control-label">密码:</label>
+                  <input type="password" tabindex="3" class="form-control" name="password" id="password" data-toggle="tooltip" data-placement="top" title="密码不能为空">
+              </div>
+              <div class="form-group">
+                  <label for="repassword" class="control-label">确认密码:</label>
+                  <input type="password" tabindex="4" class="form-control" name="repassword" id="repassword" data-toggle="tooltip" data-placement="top" title="确认密码不一致">
+              </div>
+            </form>
+          </div>
+        </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary" onclick="adduser()">提交</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="modifypassword" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel2" aria-hidden="true" data-keyboard="false">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel2">修改密码</h4>
+      </div>
+        <div class="row" style="padding-left: 20px;">
+          <div class="modal-body col-lg-11">
+            <form id="modifypassword-form">
+              <div class="form-group">
+                <label for="userlogin" class="control-label">登录名:</label>
+                  <input type="hidden" name="mid" id="mid">
+                <input type="text" tabindex="1" class="form-control" name="login" id="userlogin" data-toggle="tooltip" data-placement="top" title="用户名不能为空" readonly>
+              </div>
+              <div class="form-group">
+                  <label for="mpassword" class="control-label">密码:</label>
+                  <input type="password" tabindex="3" class="form-control" name="mpassword" id="mpassword" data-toggle="tooltip" data-placement="top" title="密码不能为空">
+              </div>
+              <div class="form-group">
+                  <label for="rempassword" class="control-label">确认密码:</label>
+                  <input type="password" tabindex="4" class="form-control" name="rempassword" id="rempassword" data-toggle="tooltip" data-placement="top" title="确认密码不一致">
+              </div>
+            </form>
+          </div>
+        </div>
+
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary" onclick="domodifypassword()">提交</button>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}
+{% block tail_js %}
+{{super()}}
+<script type="text/javascript">
+    function deleteuser(id){
+        if(window.confirm("确认删除用户")){
+            $.post('/admin/useradmin/del/', {"id": id}, function(data){
+                console.log(data);
+                if(data == "1"){
+                    window.location.reload();
+                }else{
+                    alert(JSON.stringify(data));
+                }
+
+            }, type="json");
+        }
+
+        return false;
+    }
+
+    function adduser(){
+        var formdom = $("#adduser-form").get(0);
+        var has_error = false;
+        var login = $.trim(formdom.login.value);
+        if(login == ""){
+            $(formdom.login).tooltip("show");
+            has_error = true;
+        }
+        var email = $.trim(formdom.email.value);
+        if(email == ""){
+            $(formdom.email).tooltip("show");
+            has_error = true;
+        }
+        var password = $.trim(formdom.password.value);
+        if(password == ""){
+            $(formdom.password).tooltip("show");
+            has_error = true;
+        }
+        var repassword = $.trim(formdom.repassword.value);
+        if(password != repassword){
+            $(formdom.repassword).tooltip("show");
+            has_error = true;
+        }
+
+        if(!has_error){
+            $.post('/admin/useradmin/add/', {"login": login, "email": email, "password": password}, function(data){
+                if(data == "1"){
+                    window.location.reload();
+                }else{
+
+                    var alertc = '<div class="alert alert-danger alert-dismissable" style="display: none" id="err-adduser" role="alert">' +
+                      '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>' +
+                      '</button>' +
+                      '<div id="err-adduser-cont"></div>' +
+                      '</div>';
+
+                    $(".modal-header").append(alertc);
+                    $("#err-adduser-cont").html(JSON.stringify(data));
+
+                    $("#err-adduser").show();
+                }
+
+            }, type="json");
+        }
+
+        return false;
+    }
+
+    function modifypassword(login, id){
+        $("#userlogin").val(login);
+        $("#mid").val(id);
+        $("#modifypassword").modal();
+        return false;
+    }
+
+    function domodifypassword(){
+        var formdom = $("#modifypassword-form").get(0);
+        var has_error = false;
+        var password = $.trim(formdom.mpassword.value);
+        if(password == ""){
+            $(formdom.mpassword).tooltip("show");
+            has_error = true;
+        }
+        var repassword = $.trim(formdom.rempassword.value);
+        if(password != repassword){
+            $(formdom.rempassword).tooltip("show");
+            has_error = true;
+        }
+        var id = $.trim(formdom.mid.value);
+
+        if(!has_error){
+            $.post('/admin/useradmin/modifypassword/', {"id": id, "password": password}, function(data){
+                if(data == "1"){
+                    window.location.reload();
+                }else{
+
+                    var alertc = '<div class="alert alert-danger alert-dismissable" style="display: none" id="err-modifypassword" role="alert">' +
+                      '<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>' +
+                      '</button>' +
+                      '<div id="err-modifypassword-cont"></div>' +
+                      '</div>';
+
+                    $(".modal-header").append(alertc);
+                    $("#err-modifypassword-cont").html(JSON.stringify(data));
+
+                    $("#err-modifypassword").show();
+                }
+
+            }, type="json");
+        }
+        return false;
+    }
+</script>
+
+{% endblock %}

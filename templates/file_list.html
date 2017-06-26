@@ -1,0 +1,76 @@
+{% extends 'admin/file/list.html' %}
+{% import 'admin/lib.html' as lib with context %}
+{% import 'admin/actions.html' as actionslib with context %}
+
+{% block list_header scoped %}
+{% if actions %}
+<th class="span1">
+    <input type="checkbox" name="rowtoggle" class="action-rowtoggle" />
+</th>
+{% endif %}
+<th class="span1">&nbsp;</th>
+<th>{{ _gettext('Name') }}</th>
+<th>{{ _gettext('Size') }}</th>
+<th>{{ _gettext('MTime') }}</th>
+{% endblock %}
+
+{% block list_row scoped %}
+{% if actions %}
+ <td>
+     {% if not is_dir %}
+     <input type="checkbox" name="rowid" class="action-checkbox" value="{{ path }}" />
+     {% endif %}
+ </td>
+ {% endif %}
+ <td>
+     {% block list_row_actions scoped %}
+     {% if admin_view.can_rename and path and name != '..' %}
+     <a class="icon" href="{{ get_url('.rename', path=path) }}">
+             <i class="icon-pencil"></i>
+     </a>
+     {% endif %}
+     {%- if admin_view.can_delete and path -%}
+         {% if is_dir %}
+             {% if name != '..' and admin_view.can_delete_dirs %}
+             <form class="icon" method="POST" action="{{ get_url('.delete') }}">
+                 {{ delete_form.path(value=path) }}
+                 {{ delete_form.csrf_token }}
+                 <button onclick="return confirm('{{ _gettext('Are you sure you want to delete \\\'%(name)s\\\' recursively?', name=name) }}')">
+                     <i class="icon-remove"></i>
+                 </button>
+             </form>
+             {% endif %}
+         {% else %}
+         <form class="icon" method="POST" action="{{ get_url('.delete') }}">
+             {{ delete_form.path(value=path) }}
+             {{ delete_form.csrf_token }}
+             <button onclick="return confirm('{{ _gettext('Are you sure you want to delete \\\'%(name)s\\\'?', name=name) }}')">
+                 <i class="icon-remove"></i>
+             </button>
+         </form>
+         {% endif %}
+     {%- endif -%}
+     {% endblock %}
+ </td>
+ {% if is_dir %}
+ <td colspan="2">
+     <a href="{{ get_dir_url('.index', path)|safe }}">
+         <i class="icon-folder-close"></i> <span>{{ name }}</span>
+     </a>
+ </td>
+ {% else %}
+ <td>
+     {% if admin_view.can_download %}
+     <a href="{{ get_file_url(path)|safe }}">{{ name }}</a>
+     {% else %}
+     {{ name }}
+     {% endif %}
+ </td>
+ <td>
+     {{ size|filesizeformat }}
+ </td>
+ <td>
+     {{ date|formatdate }}
+ </td>
+ {% endif %}
+ {% endblock %}
