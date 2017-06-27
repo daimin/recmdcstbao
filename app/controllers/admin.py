@@ -4,9 +4,7 @@
 """
 日志系统后台
 """
-import mmstats
-from flask import request, redirect, url_for, render_template, json
-from flask_mongoengine import MongoEngine
+from flask import request, redirect, url_for, render_template, json, Blueprint, current_app
 from flask_admin.base import MenuLink, Admin, BaseView, expose, AdminIndexView 
 from flask_admin import helpers
 from flask.ext import login
@@ -36,7 +34,7 @@ mmstats.app.config['MONGODB_SETTINGS'] = {
      }
 
 db = MongoEngine()
-db.init_app(mmstats.app)
+db.init_app(current_app)
 
 """
 日志系统后台
@@ -572,5 +570,5 @@ admin.add_view(UserModifyPasswordView(name=u"修改密码", endpoint="usermodify
 # Add logout link by endpoint
 admin.add_link(AuthenticatedMenuLink(name=u'注销', url="/admin/logout"))
 
-admin.init_app(mmstats.app)
+admin.init_app(current_app)
 

@@ -4,22 +4,22 @@
 """
 push系统专用接口
 """
-from flask import request
+from flask import request, json
 import comm
 import lib
 import conf
 
 import math
-from flask import json
 import time
 import os
 import sys
-import controllers
 
 logger = comm.getlogger("%s.log" %  __file__, ap=True)
+sys.path.append('../')
 
+from index import app
 
-@controllers.app.route('/test', methods=['GET',])
+@app.route('/test', methods=['GET',])
 def test(): 
     return lib.params.response_std([]) 
             
