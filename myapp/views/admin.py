@@ -7,27 +7,27 @@
 from flask import request, redirect, url_for, render_template, json, Blueprint, current_app
 from flask_admin.base import MenuLink, Admin, BaseView, expose, AdminIndexView 
 from flask_admin import helpers
-from flask_login import current_user, UserMixin
+from flask_login import current_user, UserMixin, LoginManager, login_user, logout_user
 from redis import Redis
 from flask_admin.contrib import rediscli
 from flask_admin.contrib.fileadmin import FileAdmin
 from werkzeug.security import generate_password_hash, check_password_hash
 from wtforms import form, fields, validators
 from flask_admin.contrib.sqla import ModelView
-from flask_sqlalchemy import SQLAlchemy
 
 
 from myapp import comm
 from myapp import conf 
 from myapp import lib
 from myapp import app
+from myapp import db
+from myapp.models import UserModel
 
 import os
 import datetime
 import time
 import operator
 
-db = SQLAlchemy(app)
 
 """
 日志系统后台
@@ -38,35 +38,6 @@ logger = comm.getlogger("%s.log" % __file__, ap=True)
 ##           用户权限模块开始
 ########################################################
 
-# Create user model.
-class UserModel(db.Model):
-    __tablename__ = 'users'
-    id = db.Column(db.Integer, primary_key=True)
-    login = db.Column(db.String(80), unique=True)
-    email = db.Column(db.String(120))
-    password = db.Column(db.String(200))
-    t = db.Column(db.Integer)
-    ut = db.Column(db.Integer)
-
-    def __repr__(self):
-        return '<User %r>' % self.login
-
-    # Flask-Login integration
-    def is_authenticated(self):
-        return True
-
-    def is_active(self):
-        return True
-
-    def is_anonymous(self):
-        return False
-
-    def get_id(self):
-        return str(self.id)
-
-    # Required for administrative interface
-    def __unicode__(self):
-        return self.login
 
 # Define login and registration forms (for flask-login)
 class LoginForm(form.Form):
@@ -85,7 +56,7 @@ class LoginForm(form.Form):
             raise validators.ValidationError(u'错误密码')
 
     def get_user(self):
-        return UserModel.objects(login=self.login.data).first()
+        return UserModel.query.filter_by(login=self.login.data).first()
 
 
 class RegistrationForm(form.Form):
@@ -100,13 +71,13 @@ class RegistrationForm(form.Form):
 
 # Initialize flask-login
 def init_login():
-    login_manager = login.LoginManager()
-    login_manager.setup_app(app)
+    login_manager = LoginManager()
+    login_manager.init_app(app)
 
     # Create user loader function
     @login_manager.user_loader
     def load_user(user_id):
-        return UserModel.objects(id=user_id).first()
+        return UserModel.query.filter_by(id=user_id).first()
 
 init_login()
 
@@ -122,7 +93,7 @@ class AuthenticatedMenuLink(MenuLink):
         self.last_name = name
 
     def is_accessible(self):
-        return current_user.is_authenticated()
+        return current_user.is_authenticated
 
     def get_url(self):
         if current_user:
@@ -133,7 +104,7 @@ class AuthenticatedMenuLink(MenuLink):
 class NotAuthenticatedMenuLink(MenuLink):
 
     def is_accessible(self):
-        return not current_user.is_authenticated()
+        return not current_user.is_authenticated
 
 
 class LogParseStatView(BaseView):
@@ -142,8 +113,9 @@ class LogParseStatView(BaseView):
         return self.render('authenticated-admin.html')
 
     def is_accessible(self):
-        return current_user.is_authenticated()
+        return current_user.is_authenticated
 
+print generate_password_hash('123')
 
 class UserInfoSearchView(BaseView):
 
@@ -192,7 +164,7 @@ class UserInfoSearchView(BaseView):
         return '[]'
 
     def is_accessible(self):
-        return current_user.is_authenticated()
+        return current_user.is_authenticated
 
 
 class UserCondSearchView(BaseView):
@@ -202,7 +174,7 @@ class UserCondSearchView(BaseView):
         return self.render('usersearch-cond.html')
 
     def is_accessible(self):
-        return current_user.is_authenticated()
+        return current_user.is_authenticated
 
     @expose("/s/", methods=('GET', 'POST'))
     def search(self):
@@ -359,7 +331,7 @@ class UserAdminView(BaseView):
         return '1'
 
     def is_accessible(self):
-        return current_user.is_authenticated() and current_user.login == "admin"
+        return current_user.is_authenticated and current_user.login == "admin"
 
 
 class UserModifyPasswordView(BaseView):
@@ -407,12 +379,12 @@ class MyFileAdmin(FileAdmin):
     list_template = "file_list.html"
 
     def is_accessible(self):
-        return current_user.is_authenticated()
+        return current_user.is_authenticated
 
 class MyRedisCli(rediscli.RedisCli):
 
     def is_accessible(self):
-        return current_user.is_authenticated()
+        return current_user.is_authenticated
 
 
 class MyAdminIndex(AdminIndexView):
@@ -421,44 +393,10 @@ class MyAdminIndex(AdminIndexView):
 
     @expose('/')
     def index(self):
-        if not current_user.is_authenticated():
+        if not current_user.is_authenticated:
             return redirect(url_for('.login_view'))
 
-        logfilestat_db = LogFileStat.getinstance()
-        results = logfilestat_db.find({"t": {"$gt": int(time.time()) - 864000}}, {"_id": 0, "type": 1, "t": 1})
-
-        response = {}
-        ts = set()
-        if results:
-            #{u'type': u'statis1', u't': 1428894903}
-            for result in results:
-                t = int(result.get("t"))
-                type_ = result.get("type")
-                t = comm.timestamp2datetime(t)
-                if t:
-                    t = t.strftime("%Y-%m-%d")
-                    ts.add(t)
-                    if type_ in response:
-                        if t in response[type_]:
-                            response[type_][t] += 1
-                        else:
-                            response[type_][t] = 1
-                    else:
-                        response[type_] = {t: 1}
-
-        ts = list(ts)
-        ts.sort()
-        self._template_args['initcategories'] = json.dumps(ts)
-        response_list = []
-        for type_, resv in response.iteritems():
-            vdata = []
-            resv = sorted(resv.iteritems(), key=operator.itemgetter(0))
-            for _, rv in resv:
-                vdata.append(rv)
-
-            response_list.append({"name": type_, "data": vdata})
-
-        self._template_args['logdata'] = json.dumps(response_list)
+        self._template_args['logdata'] = []
         return self.render('index.html')
 
     @expose('/updatequeue/<type_>', methods=['GET'])
@@ -504,9 +442,9 @@ class MyAdminIndex(AdminIndexView):
         form = LoginForm(request.form)
         if helpers.validate_form_on_submit(form):
             user = form.get_user()
-            login.login_user(user)
+            login_user(user)
 
-        if login.current_user.is_authenticated():
+        if current_user.is_authenticated:
             return redirect(url_for('.index'))
         #link = '<p>Don\'t have an account? <a href="' + url_for('.register_view') + '">Click here to register.</a></p>'
         link = ''
@@ -516,7 +454,7 @@ class MyAdminIndex(AdminIndexView):
 
     @expose('/register/', methods=('GET', 'POST'))
     def register_view(self):
-        if not current_user.is_authenticated():
+        if not current_user.is_authenticated:
             return redirect(url_for('.login_view'))
         form = RegistrationForm(request.form)
         if helpers.validate_form_on_submit(form):
@@ -529,7 +467,7 @@ class MyAdminIndex(AdminIndexView):
 
             user.save() 
 
-            login.login_user(user)
+            login_user(user)
             return redirect(url_for('.index'))
         link = '<p>Already have an account? <a href="' + url_for('.login_view') + '">Click here to log in.</a></p>'
         self._template_args['form'] = form
@@ -538,7 +476,7 @@ class MyAdminIndex(AdminIndexView):
 
     @expose('/logout/')
     def logout_view(self):
-        login.logout_user()
+        logout_user()
         return redirect(url_for('.index'))
 
 

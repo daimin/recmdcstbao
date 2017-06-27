@@ -3,4 +3,4 @@
 #encoding=utf-8
 
 from push import *
-#from admin import *
+from admin import *
