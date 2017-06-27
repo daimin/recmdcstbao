@@ -7,34 +7,27 @@
 from flask import request, redirect, url_for, render_template, json, Blueprint, current_app
 from flask_admin.base import MenuLink, Admin, BaseView, expose, AdminIndexView 
 from flask_admin import helpers
-from flask.ext import login
 from flask_login import current_user, UserMixin
 from redis import Redis
 from flask_admin.contrib import rediscli
 from flask_admin.contrib.fileadmin import FileAdmin
 from werkzeug.security import generate_password_hash, check_password_hash
 from wtforms import form, fields, validators
-from flask_admin.contrib.mongoengine import ModelView
+from flask_admin.contrib.sqla import ModelView
+from flask_sqlalchemy import SQLAlchemy
 
 
-import comm
-import conf 
-import lib
+from myapp import comm
+from myapp import conf 
+from myapp import lib
+from myapp import app
 
 import os
 import datetime
 import time
 import operator
 
-mongoconfig = conf.mongodb['write']
-mmstats.app.config['MONGODB_SETTINGS'] = {
-     "db": mongoconfig['db'],
-     "host": mongoconfig['host'],
-     "port": mongoconfig['port'],
-     }
-
-db = MongoEngine()
-db.init_app(current_app)
+db = SQLAlchemy(app)
 
 """
 日志系统后台
@@ -46,12 +39,17 @@ logger = comm.getlogger("%s.log" % __file__, ap=True)
 ########################################################
 
 # Create user model.
-class UserModel(db.Document):
-    login = db.StringField(max_length=80, unique=True)
-    email = db.StringField(max_length=120)
-    password = db.StringField(max_length=200)
-    t = db.LongField()
-    ut = db.LongField()
+class UserModel(db.Model):
+    __tablename__ = 'users'
+    id = db.Column(db.Integer, primary_key=True)
+    login = db.Column(db.String(80), unique=True)
+    email = db.Column(db.String(120))
+    password = db.Column(db.String(200))
+    t = db.Column(db.Integer)
+    ut = db.Column(db.Integer)
+
+    def __repr__(self):
+        return '<User %r>' % self.login
 
     # Flask-Login integration
     def is_authenticated(self):
@@ -103,7 +101,7 @@ class RegistrationForm(form.Form):
 # Initialize flask-login
 def init_login():
     login_manager = login.LoginManager()
-    login_manager.setup_app(mmstats.app)
+    login_manager.setup_app(app)
 
     # Create user loader function
     @login_manager.user_loader
@@ -548,7 +546,7 @@ def formatdate(date_, fmt="%Y-%m-%d %H:%I:%S"):
     dt = comm.timestamp2datetime(date_)
     return dt.strftime(fmt)
 
-mmstats.app.jinja_env.filters['formatdate'] = formatdate
+app.jinja_env.filters['formatdate'] = formatdate
 
 myAdminIndexView = MyAdminIndex(name=u"首页")
 admin = Admin(name=u"日志系统后台", template_mode="bootstrap3", index_view=myAdminIndexView)
@@ -561,8 +559,6 @@ admin.add_link(NotAuthenticatedMenuLink(name=u'登录', url="/admin/login"))
 path = os.path.realpath(os.path.join(os.path.dirname(__file__), "../../.."))
 admin.add_view(MyFileAdmin(path, '/filemgr/', name=u'文件管理'))
 
-admin.add_view(MyRedisCli(Redis(host=conf.redis['host'], port=conf.redis['port'], db=conf.redis['db']), name=u"redis控制台"))
-
 admin.add_view(UserAdminView(name=u"用户管理", endpoint="useradmin", category=u"用户管理"))
 admin.add_view(UserModifyPasswordView(name=u"修改密码", endpoint="usermodifypassword", category=u"用户管理"))
 
@@ -570,5 +566,5 @@ admin.add_view(UserModifyPasswordView(name=u"修改密码", endpoint="usermodify
 # Add logout link by endpoint
 admin.add_link(AuthenticatedMenuLink(name=u'注销', url="/admin/logout"))
 
-admin.init_app(current_app)
+admin.init_app(app)
 

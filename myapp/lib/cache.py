@@ -3,7 +3,7 @@
 #encoding=utf-8
 """缓存
 """
-import conf, comm
+from myapp import conf, comm
 import datetime
 import time
 import os

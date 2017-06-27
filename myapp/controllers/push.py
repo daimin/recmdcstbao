@@ -5,9 +5,10 @@
 push系统专用接口
 """
 from flask import request, json
-import comm
-import lib
-import conf
+from myapp import comm
+from myapp import lib
+from myapp import conf
+from myapp import app
 
 import math
 import time
@@ -15,9 +16,6 @@ import os
 import sys
 
 logger = comm.getlogger("%s.log" %  __file__, ap=True)
-sys.path.append('../')
-
-from index import app
 
 @app.route('/test', methods=['GET',])
 def test(): 

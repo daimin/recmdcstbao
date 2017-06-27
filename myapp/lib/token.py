@@ -5,7 +5,7 @@
 """
 import time
 import operator
-import conf, comm
+from myapp import conf, comm
 
 _first_check = True
 

@@ -7,7 +7,7 @@
 """
 
 from flask import json
-import lib.token
+import myapp.lib.token
 from flask import json
 import time
 
