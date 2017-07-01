@@ -238,6 +238,9 @@ class AlchemyEncoder(json.JSONEncoder):
                         fields[field] = None
             # a json-encodable dict
             return fields
+        elif isinstance(obj, datetime.datetime):
+            return obj.strftime('%Y-%m-%d %H:%M:%S')
+        elif isinstance(obj, datetime.date):
+            return obj.strftime('%Y-%m-%d')
 
         return json.JSONEncoder.default(self, obj)
-
