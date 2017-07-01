@@ -1,0 +1,118 @@
+Traceback (most recent call last):
+  File "index.py", line 6, in <module>
+    from myapp import app
+  File "/webser/python/recmdcstbao01/myapp/__init__.py", line 15, in <module>
+    from views import *
+  File "/webser/python/recmdcstbao01/myapp/views/__init__.py", line 5, in <module>
+    from customer import *
+  File "/webser/python/recmdcstbao01/myapp/views/customer.py", line 45
+    i + +
+        ^
+SyntaxError: invalid syntax
+ * Running on http://0.0.0.0:5001/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+127.0.0.1 - - [01/Jul/2017 20:24:29] "POST /api/customer/recommend HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1997, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1985, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1540, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/webser/python/recmdcstbao01/myapp/views/customer.py", line 43, in recommend
+    if 'customer_ids[' + i + ']' in request.form:
+TypeError: cannot concatenate 'str' and 'int' objects
+ * Detected change in '/webser/python/recmdcstbao01/myapp/views/customer.py', reloading
+pbkdf2:sha256:50000$S1yxRh6k$098a846780eaa7c09a2aaaaa4fe4d9a47ff5e67baddec2c7d8cd4bed4a0fdddc
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+127.0.0.1 - - [01/Jul/2017 20:25:30] "POST /api/customer/recommend HTTP/1.1" 200 -
+ * Detected change in '/webser/python/recmdcstbao01/myapp/views/customer.py', reloading
+pbkdf2:sha256:50000$hyXASuYD$a35bedde50814c05995e314f4c6c501957ed61b57e01d514d304cec9827f9841
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+ * Detected change in '/webser/python/recmdcstbao01/myapp/views/customer.py', reloading
+pbkdf2:sha256:50000$eKwJSJhH$8e275a996937ea932ec27a195b36f321c1d31c13b26f53b3c2ea2eaeb3094048
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+ * Detected change in '/webser/python/recmdcstbao01/myapp/views/customer.py', reloading
+pbkdf2:sha256:50000$HHLzDWi8$61ab3eca9677c6f0bb24f07872da756becd446a2d594d2ab84132b5ea57ccb52
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+ * Detected change in '/webser/python/recmdcstbao01/myapp/views/customer.py', reloading
+pbkdf2:sha256:50000$oFT25ykt$a6b4cfae2af6def4d47588771b6b22175597937372fb8c3d37517b5fa572102d
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+ * Detected change in '/webser/python/recmdcstbao01/myapp/views/customer.py', reloading
+pbkdf2:sha256:50000$a8sOb5xp$128124ef9f4a932ea16306d81b27ec95acb534b5aacf4009b15bc1da93e6085a
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+ * Detected change in '/webser/python/recmdcstbao01/myapp/views/customer.py', reloading
+pbkdf2:sha256:50000$Um3fUZNW$de40381f34b3c997006160a9ae8e0d78945810b42fbd24f59332a4260801aedd
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+ * Detected change in '/webser/python/recmdcstbao01/myapp/views/customer.py', reloading
+pbkdf2:sha256:50000$UowMZljC$146447ac5652930a6ab3be10fdcaaa072aa661d6beee0c05f7f1910622f5dc7e
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+ * Detected change in '/webser/python/recmdcstbao01/myapp/views/customer.py', reloading
+pbkdf2:sha256:50000$mxDHvV2f$4723b27b2eac9394ffbffc1395817fd7f5dd87037d068679a9b316440b56ddd2
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+ * Detected change in '/webser/python/recmdcstbao01/myapp/views/customer.py', reloading
+pbkdf2:sha256:50000$eZJTsvJ7$fec1c6790a208fc551f5d33cc5dbd66c0bf57ba4baab30374a834b6bb2d0baf3
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+ * Detected change in '/webser/python/recmdcstbao01/myapp/views/customer.py', reloading
+pbkdf2:sha256:50000$CuvMM3Sa$c0cdaef9267969e3540507b02ed91ca62fb1d19c543ea2bcf092680505c29457
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+127.0.0.1 - - [01/Jul/2017 20:38:28] "POST /api/customer/recommend HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2017 20:38:30] "POST /api/customer/recommend HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1997, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1985, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1540, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1615, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1630, in finalize_request
+    response = self.make_response(rv)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1725, in make_response
+    raise ValueError('View function did not return a response')
+ValueError: View function did not return a response
+ * Detected change in '/webser/python/recmdcstbao01/myapp/views/customer.py', reloading
+pbkdf2:sha256:50000$EfNwMFIp$062bd01370fb6a934b56499acd4dc08cf4934488f11381fbabc0d402141efa15
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+127.0.0.1 - - [01/Jul/2017 20:40:25] "POST /api/customer/recommend HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2017 20:40:27] "POST /api/customer/recommend HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2017 20:40:30] "POST /api/customer/recommend HTTP/1.1" 200 -

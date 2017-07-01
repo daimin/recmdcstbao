@@ -29,16 +29,26 @@ def save():
 @app.route('/api/customer/recommend', methods=['POST'])
 def recommend():
     try:
-        if 'customer_id' in request.form:
-            customer_id = request.form['customer_id']
-        if customer_id < 0:
-            customer_id = save_customer()
-        company_customer = CompanyCustomerModel(request.form['company_id'], customer_id)
-        db.session.add(company_customer)
-        db.session.commit()
+        customer_ids = []
+        i = 0
+        while True:
+            if 'customer_ids[' + str(i) + ']' in request.form:
+                customer_ids.append(request.form['customer_ids[' + str(i) + ']'])
+                i = i + 1
+            else:
+                break
+        if len(customer_ids) == 0:
+            customer_ids.append(save_customer())
+
+        company_id = request.form['company_id']
+        for customer_id in customer_ids:
+            company_customer = CompanyCustomerModel(company_id, customer_id)
+            db.session.add(company_customer)
+            db.session.commit()
+
+        return lib.params.response_std(1)
     except Exception, e:
         return lib.params.response_std(0, '-1', e.message)
-    return lib.params.response_std(1)
 
 def save_customer():
     customer = CustomerModel(request.form['name'], request.form['mobile_tel'], request.form['gender'], request.form['remark'])

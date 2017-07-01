@@ -8,4 +8,4 @@ from myapp import app
 app.debug = True
 app.secret_key = 'Acdb56432fdsghfcb&8743'
 
-app.run(host='0.0.0.0', debug=True)
+app.run(host='0.0.0.0', port=5001, debug=True)
