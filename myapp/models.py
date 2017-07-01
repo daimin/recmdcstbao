@@ -10,8 +10,8 @@ class UserModel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
 
 # Create customer model.
-class CustomerModel(db.Model):
-    __tablename__ = 'customer'
+class UserCustomerModel(db.Model):
+    __tablename__ = 'user_customer'
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer)
     name = db.Column(db.String(20))
