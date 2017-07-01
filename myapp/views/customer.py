@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 #encoding=utf-8
 
-from myapp import app, db
+from myapp import app, db, user_id
 from myapp import lib
 from myapp.models import CustomerModel
 from myapp.models import CompanyCustomerModel
@@ -51,7 +51,7 @@ def recommend():
         return lib.params.response_std(0, '-1', e.message)
 
 def save_customer():
-    customer = CustomerModel(request.form['name'], request.form['mobile_tel'], request.form['gender'], request.form['remark'])
+    customer = CustomerModel(user_id, request.form['name'], request.form['mobile_tel'], request.form['gender'], request.form['remark'])
     db.session.add(customer)
     try:
         db.session.commit()
