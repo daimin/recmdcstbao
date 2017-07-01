@@ -5,6 +5,7 @@
 from myapp import app, db
 from myapp import lib
 from myapp.models import CustomerModel
+from myapp.models import CompanyCustomerModel
 from flask import request
 import sqlalchemy
 
