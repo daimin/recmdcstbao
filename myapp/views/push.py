@@ -17,6 +17,12 @@ import sys
 
 logger = comm.getlogger("%s.log" %  __file__, ap=True)
 
+
+@app.route('/static/.*', methods=['GET',])
+def get_static():
+    return 'xxx'
+
+
 @app.route('/api', methods=['GET',])
 def test():
     # user = UserModel.query.filter_by(mobile_tel='18575516501').first()

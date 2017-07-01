@@ -247,18 +247,7 @@ class UserCondSearchView(BaseView):
             if res:
                 conds['bbbirth'] = res
 
-            if request.args.get("app") == "pt":
-                if "bbtag" in conds:
-                    del conds['bbtag']
-                lt = AppHuaiyunLastvisitToken.getinstance()
-            else:
-                lt = AppMamaquanLastvisitToken.getinstance()
-            print conds
-            results = lt.find(conds, {"_id": 1})
-            if results:
-                response_count = '{"count": %d}' % results.count()
-                lib.cache.write(lib.cache.get_cache_key(request.args), response_count)
-                return response_count
+                lib.cache.write(lib.cache.get_cache_key(request.args), [])
             else:
                 return '{"count": 0}'
 
