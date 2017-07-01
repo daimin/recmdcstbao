@@ -17,8 +17,8 @@ def get(id = None):
 @app.route('/api/customer/list', methods=['GET'])
 def get_list():
     company_id = 0
-    if 'company_id' in request.form:
-        company_id = request.form['company_id']
+    if 'company_id' in request.args:
+        company_id = request.args['company_id']
     if company_id > 0:
         user_customer_ids = db.session.query(CompanyCustomerModel.user_customer_id).filter_by(user_id=user_id, company_id=company_id).all()
     else:
@@ -27,7 +27,11 @@ def get_list():
 
     for user_customer_id in user_customer_ids:
         user_customer_id2s.append(user_customer_id[0])
-    user_customers = UserCustomerModel.query.filter(UserCustomerModel.id.in_(user_customer_id2s)).all()
+
+    if len(user_customer_id2s) == 0:
+        user_customers = UserCustomerModel.query.filter_by(user_id=user_id).all()
+    else:
+        user_customers = UserCustomerModel.query.filter_by(user_id=user_id).filter(UserCustomerModel.id.notin_(user_customer_id2s)).all()
 
     return lib.params.response_std(user_customers)
 
