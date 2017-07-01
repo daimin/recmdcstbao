@@ -10,16 +10,16 @@ import sqlalchemy
 
 
 @app.route('/api/company/list', methods=['GET'])
-def get_customer_list():
+def get_company_list():
     companys = CompanyModel.query.order_by("created_time desc").all()
-    return lib.params.response_std([companys])
+    return lib.params.response_std(companys)
 
 
-@app.route('/api/company', methods=['POST', 'GET'])
-@app.route('/api/company/<id>', methods=['GET'])
-def save_customer(id=None):
+@app.route('/api/company/', methods=['POST'])
+@app.route('/api/company/<id>', methods=['POST','GET'])
+def get_save_company(id=None):
     if request.method == 'POST':
-        company_model = CompanyModel(request.form['name'], request.form['tel'], request.form['remark'])
+        company_model = CompanyModel(request.form['name'], request.form['tel'], request.form['remark'], request.form['avatar'])
         db.session.add(company_model)
         try:
             db.session.commit()

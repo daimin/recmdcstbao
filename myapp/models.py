@@ -58,11 +58,13 @@ class CompanyModel(db.Model):
     name = db.Column(db.String(20))
     tel = db.Column(db.String(20), unique=True)
     remark = db.Column(db.String(200))
+    avatar = db.Column(db.String(255))
 
-    def __init__(self, name, tel, remark):
+    def __init__(self, name, tel, remark, avatar):
         self.name = name
         self.tel = tel
         self.remark = remark
+        self.avatar = avatar
 
     def __repr__(self):
         return '<Company %r>' % self.name
