@@ -9,6 +9,7 @@ from myapp import comm
 from myapp import lib
 from myapp import conf
 from myapp import app
+from myapp.models import UserModel
 
 import math
 import time
@@ -17,9 +18,10 @@ import sys
 
 logger = comm.getlogger("%s.log" %  __file__, ap=True)
 
-@app.route('/test', methods=['GET',])
-def test(): 
-    return lib.params.response_std([]) 
+@app.route('/api', methods=['GET',])
+def test():
+    # user = UserModel.query.filter_by(mobile_tel='18575516501').first()
+    return lib.params.response_std([])
             
 
 

@@ -6,16 +6,13 @@ from myapp import db
 
 # Create user model.
 class UserModel(db.Model):
-    __tablename__ = 'users'
+    __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key=True)
-    login = db.Column(db.String(80), unique=True)
-    email = db.Column(db.String(120))
-    password = db.Column(db.String(200))
-    t = db.Column(db.Integer)
-    ut = db.Column(db.Integer)
+    mobile_tel = db.Column(db.String(11), unique=True)
+    password = db.Column(db.String(32))
 
     def __repr__(self):
-        return '<User %r>' % self.login
+        return '<User %r>' % self.mobile_tel
 
     # Flask-Login integration
     def is_authenticated(self):
@@ -32,4 +29,15 @@ class UserModel(db.Model):
 
     # Required for administrative interface
     def __unicode__(self):
-        return self.login
+        return self.mobile_tel
+
+# Create customer model.
+class CustomerModel(db.Model):
+    __tablename__ = 'customer'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(20))
+    mobile_tel = db.Column(db.String(11), unique=True)
+    gender = db.Column(db.Integer)
+    remark = db.Column(db.String(100))
+
+

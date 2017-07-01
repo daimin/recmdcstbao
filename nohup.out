@@ -1,0 +1,669 @@
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+pbkdf2:sha256:50000$RubLfaYR$6e7087eedef16398b1a184c9438934b3b94cde5e7fa983454515dfb0cf1000cd
+pbkdf2:sha256:50000$k3NvQzMk$081b40e015251f6fa9c809af0d681000345c86863267404283b3ae4b5333adcc
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+127.0.0.1 - - [30/Jun/2017 22:31:08] "GET /admin/login/ HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2017 22:31:29] "GET /admin/login/ HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2017 22:37:21] "GET /push/test HTTP/1.1" 404 -
+127.0.0.1 - - [30/Jun/2017 22:37:31] "GET /test HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2017 22:55:01] "GET /test HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2017 22:55:20] "GET /test HTTP/1.1" 200 -
+pbkdf2:sha256:50000$rg0sL3Gl$f25105d41bc5e3f41b5fac1f40d4fe79649851809955f002dcf2ad0e7c75b56f
+pbkdf2:sha256:50000$KxoDrEeQ$9acd7d50231caf1b40a2045d54d75d4480189ad0814aa63eed0a0c6e25d852bd
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+127.0.0.1 - - [30/Jun/2017 23:40:46] "GET /test HTTP/1.1" 200 -
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/push.py', reloading
+pbkdf2:sha256:50000$zEBLQZsA$064875b9398a7146099cd67a84af75350d5e693d2d2430daf902b659cb6d710a
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+127.0.0.1 - - [30/Jun/2017 23:43:07] "GET /test HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1997, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1985, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1540, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/webser/python/recmdcstbao/myapp/views/push.py", line 23, in test
+    UserModel.query.filter_by(login='fdsf').first()
+  File "/Library/Python/2.7/site-packages/flask_sqlalchemy/__init__.py", line 498, in __get__
+    return type.query_class(mapper, session=self.sa.session())
+  File "/Library/Python/2.7/site-packages/sqlalchemy/orm/scoping.py", line 78, in __call__
+    return self.registry()
+  File "/Library/Python/2.7/site-packages/sqlalchemy/util/_collections.py", line 990, in __call__
+    return self.registry.setdefault(key, self.createfunc())
+  File "/Library/Python/2.7/site-packages/sqlalchemy/orm/session.py", line 2861, in __call__
+    return self.class_(**local_kw)
+  File "/Library/Python/2.7/site-packages/flask_sqlalchemy/__init__.py", line 145, in __init__
+    bind = options.pop('bind', None) or db.engine
+  File "/Library/Python/2.7/site-packages/flask_sqlalchemy/__init__.py", line 922, in engine
+    return self.get_engine()
+  File "/Library/Python/2.7/site-packages/flask_sqlalchemy/__init__.py", line 941, in get_engine
+    return connector.get_engine()
+  File "/Library/Python/2.7/site-packages/flask_sqlalchemy/__init__.py", line 543, in get_engine
+    self._engine = rv = sqlalchemy.create_engine(info, **options)
+  File "/Library/Python/2.7/site-packages/sqlalchemy/engine/__init__.py", line 387, in create_engine
+    return strategy.create(*args, **kwargs)
+  File "/Library/Python/2.7/site-packages/sqlalchemy/engine/strategies.py", line 80, in create
+    dbapi = dialect_cls.dbapi(**dbapi_args)
+  File "/Library/Python/2.7/site-packages/sqlalchemy/dialects/mysql/pymysql.py", line 62, in dbapi
+    return __import__('pymysql')
+ImportError: No module named pymysql
+127.0.0.1 - - [30/Jun/2017 23:43:07] "GET /test?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2017 23:43:07] "GET /test?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2017 23:43:07] "GET /test?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2017 23:43:07] "GET /test?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2017 23:43:07] "GET /test?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2017 23:43:07] "GET /test?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2017 23:43:46] "GET /test HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1997, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1985, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1540, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/webser/python/recmdcstbao/myapp/views/push.py", line 23, in test
+    UserModel.query.filter_by(login='fdsf').first()
+  File "/Library/Python/2.7/site-packages/sqlalchemy/orm/query.py", line 2755, in first
+    ret = list(self[0:1])
+  File "/Library/Python/2.7/site-packages/sqlalchemy/orm/query.py", line 2547, in __getitem__
+    return list(res)
+  File "/Library/Python/2.7/site-packages/sqlalchemy/orm/query.py", line 2855, in __iter__
+    return self._execute_and_instances(context)
+  File "/Library/Python/2.7/site-packages/sqlalchemy/orm/query.py", line 2878, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/Library/Python/2.7/site-packages/sqlalchemy/engine/base.py", line 945, in execute
+    return meth(self, multiparams, params)
+  File "/Library/Python/2.7/site-packages/sqlalchemy/sql/elements.py", line 263, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Library/Python/2.7/site-packages/sqlalchemy/engine/base.py", line 1053, in _execute_clauseelement
+    compiled_sql, distilled_params
+  File "/Library/Python/2.7/site-packages/sqlalchemy/engine/base.py", line 1189, in _execute_context
+    context)
+  File "/Library/Python/2.7/site-packages/sqlalchemy/engine/base.py", line 1402, in _handle_dbapi_exception
+    exc_info
+  File "/Library/Python/2.7/site-packages/sqlalchemy/util/compat.py", line 203, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Library/Python/2.7/site-packages/sqlalchemy/engine/base.py", line 1182, in _execute_context
+    context)
+  File "/Library/Python/2.7/site-packages/sqlalchemy/engine/default.py", line 470, in do_execute
+    cursor.execute(statement, parameters)
+  File "/Library/Python/2.7/site-packages/pymysql/cursors.py", line 166, in execute
+    result = self._query(query)
+  File "/Library/Python/2.7/site-packages/pymysql/cursors.py", line 322, in _query
+    conn.query(q)
+  File "/Library/Python/2.7/site-packages/pymysql/connections.py", line 856, in query
+    self._affected_rows = self._read_query_result(unbuffered=unbuffered)
+  File "/Library/Python/2.7/site-packages/pymysql/connections.py", line 1057, in _read_query_result
+    result.read()
+  File "/Library/Python/2.7/site-packages/pymysql/connections.py", line 1340, in read
+    first_packet = self.connection._read_packet()
+  File "/Library/Python/2.7/site-packages/pymysql/connections.py", line 1014, in _read_packet
+    packet.check_error()
+  File "/Library/Python/2.7/site-packages/pymysql/connections.py", line 393, in check_error
+    err.raise_mysql_exception(self._data)
+  File "/Library/Python/2.7/site-packages/pymysql/err.py", line 107, in raise_mysql_exception
+    raise errorclass(errno, errval)
+ProgrammingError: (pymysql.err.ProgrammingError) (1146, u"Table 'recmdcstbao.users' doesn't exist") [SQL: u'SELECT users.id AS users_id, users.login AS users_login, users.email AS users_email, users.password AS users_password, users.t AS users_t, users.ut AS users_ut \nFROM users \nWHERE users.login = %(login_1)s \n LIMIT %(param_1)s'] [parameters: {u'login_1': 'fdsf', u'param_1': 1}]
+127.0.0.1 - - [30/Jun/2017 23:43:46] "GET /test?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2017 23:43:46] "GET /test?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2017 23:43:46] "GET /test?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2017 23:43:47] "GET /test?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2017 23:43:47] "GET /test?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+ * Detected change in '/webser/python/recmdcstbao/myapp/models.py', reloading
+pbkdf2:sha256:50000$oiU3JNmy$97d6df4f6efd687f136ee0a7dd30c85e8ea14fd80d7c690709800ff52da60870
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+ * Detected change in '/webser/python/recmdcstbao/myapp/models.py', reloading
+pbkdf2:sha256:50000$PYgYcW0r$50b13ca78132b6c6604a7088efc6ba279a510dd883dc0025bae04ba09a6c0bb1
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+ * Detected change in '/webser/python/recmdcstbao/myapp/models.py', reloading
+pbkdf2:sha256:50000$0zvTAUDX$eadc97840873f3e6e3cb01cd29550f2ceb182470c455d2e43d746d7db61a3ab3
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+ * Detected change in '/webser/python/recmdcstbao/myapp/models.py', reloading
+pbkdf2:sha256:50000$AVGZpDAi$f3c85dc542d4d63c127482eee3e7f3c6468c4c5ada8dbc9b42c8563c55ebf829
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+127.0.0.1 - - [30/Jun/2017 23:59:19] "GET /test HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1997, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1985, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1540, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/webser/python/recmdcstbao/myapp/views/push.py", line 23, in test
+    UserModel.query.filter_by(login='fdsf').first()
+  File "/Library/Python/2.7/site-packages/sqlalchemy/orm/query.py", line 1562, in filter_by
+    for key, value in kwargs.items()]
+  File "/Library/Python/2.7/site-packages/sqlalchemy/orm/base.py", line 383, in _entity_descriptor
+    (description, key)
+InvalidRequestError: Entity '<class 'myapp.models.UserModel'>' has no property 'login'
+127.0.0.1 - - [30/Jun/2017 23:59:19] "GET /test?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2017 23:59:19] "GET /test?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2017 23:59:19] "GET /test?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2017 23:59:19] "GET /test?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [30/Jun/2017 23:59:19] "GET /test?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/push.py', reloading
+pbkdf2:sha256:50000$sZ5KmFku$918da9822ea1550d1dfdc9a2c00e806f626fababdc5de3ee97215487f46e899f
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+127.0.0.1 - - [30/Jun/2017 23:59:47] "GET /test HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2017 00:00:39] "GET /test HTTP/1.1" 200 -
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/push.py', reloading
+pbkdf2:sha256:50000$Pzhlinhh$1c1cf9b5f802c5dabe6021ad0555f074f41b3ae329bbcec9f35da16f6d8c461a
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+127.0.0.1 - - [01/Jul/2017 00:00:54] "GET /test HTTP/1.1" 200 -
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/push.py', reloading
+pbkdf2:sha256:50000$qKS7MSV5$c9fc0d645d941cff7aab32b6d873eed436d2b1ee596e2096b5449b46c100ad31
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+127.0.0.1 - - [01/Jul/2017 00:01:13] "GET /test HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1997, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1985, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1540, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1615, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1630, in finalize_request
+    response = self.make_response(rv)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1740, in make_response
+    rv = self.response_class.force_type(rv, request.environ)
+  File "/Library/Python/2.7/site-packages/werkzeug/wrappers.py", line 885, in force_type
+    response = BaseResponse(*_run_wsgi_app(response, environ))
+  File "/Library/Python/2.7/site-packages/werkzeug/wrappers.py", line 57, in _run_wsgi_app
+    return _run_wsgi_app(*args)
+  File "/Library/Python/2.7/site-packages/werkzeug/test.py", line 884, in run_wsgi_app
+    app_rv = app(environ, start_response)
+TypeError: 'UserModel' object is not callable
+127.0.0.1 - - [01/Jul/2017 00:01:13] "GET /test?__debugger__=yes&cmd=resource&f=style.css HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2017 00:01:13] "GET /test?__debugger__=yes&cmd=resource&f=jquery.js HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2017 00:01:13] "GET /test?__debugger__=yes&cmd=resource&f=debugger.js HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2017 00:01:13] "GET /test?__debugger__=yes&cmd=resource&f=ubuntu.ttf HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jul/2017 00:01:13] "GET /test?__debugger__=yes&cmd=resource&f=console.png HTTP/1.1" 200 -
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/push.py', reloading
+pbkdf2:sha256:50000$gO3RG1K4$f01cf9184a4604eea1c567eb39598b532fd2ef3467402bea04b9d279095b2cc4
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/push.py', reloading
+pbkdf2:sha256:50000$5uf2po7U$8cc9c98b1ea404b6260e52a0b5598de23ee18b6cb727bfb15254b6f292dfe388
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/push.py', reloading
+pbkdf2:sha256:50000$m4mY50ir$769cb4c88e1be9b19bcd662fe32d35921fa35649caa8205580668349c3ecc0a9
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+Traceback (most recent call last):
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/SocketServer.py", line 295, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/SocketServer.py", line 321, in process_request
+    self.finish_request(request, client_address)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/SocketServer.py", line 334, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/SocketServer.py", line 655, in __init__
+    self.handle()
+  File "/Library/Python/2.7/site-packages/werkzeug/serving.py", line 232, in handle
+    rv = BaseHTTPRequestHandler.handle(self)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/BaseHTTPServer.py", line 340, in handle
+    self.handle_one_request()
+  File "/Library/Python/2.7/site-packages/werkzeug/serving.py", line 267, in handle_one_request
+    return self.run_wsgi()
+  File "/Library/Python/2.7/site-packages/werkzeug/serving.py", line 209, in run_wsgi
+    execute(self.server.app)
+  File "/Library/Python/2.7/site-packages/werkzeug/serving.py", line 199, in execute
+    for data in application_iter:
+  File "/Library/Python/2.7/site-packages/werkzeug/debug/__init__.py", line 284, in debug_application
+    app_iter = self.app(environ, start_response)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1997, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/webser/python/recmdcstbao/myapp/views/push.py", line 24, in test
+    exit()
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site.py", line 360, in __call__
+    raise SystemExit(code)
+SystemExit: None
+Traceback (most recent call last):
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/SocketServer.py", line 295, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/SocketServer.py", line 321, in process_request
+    self.finish_request(request, client_address)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/SocketServer.py", line 334, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/SocketServer.py", line 655, in __init__
+    self.handle()
+  File "/Library/Python/2.7/site-packages/werkzeug/serving.py", line 232, in handle
+    rv = BaseHTTPRequestHandler.handle(self)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/BaseHTTPServer.py", line 340, in handle
+    self.handle_one_request()
+  File "/Library/Python/2.7/site-packages/werkzeug/serving.py", line 267, in handle_one_request
+    return self.run_wsgi()
+  File "/Library/Python/2.7/site-packages/werkzeug/serving.py", line 209, in run_wsgi
+    execute(self.server.app)
+  File "/Library/Python/2.7/site-packages/werkzeug/serving.py", line 199, in execute
+    for data in application_iter:
+  File "/Library/Python/2.7/site-packages/werkzeug/debug/__init__.py", line 284, in debug_application
+    app_iter = self.app(environ, start_response)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1997, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/webser/python/recmdcstbao/myapp/views/push.py", line 24, in test
+    exit()
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site.py", line 360, in __call__
+    raise SystemExit(code)
+SystemExit: None
+Traceback (most recent call last):
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/SocketServer.py", line 295, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/SocketServer.py", line 321, in process_request
+    self.finish_request(request, client_address)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/SocketServer.py", line 334, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/SocketServer.py", line 655, in __init__
+    self.handle()
+  File "/Library/Python/2.7/site-packages/werkzeug/serving.py", line 232, in handle
+    rv = BaseHTTPRequestHandler.handle(self)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/BaseHTTPServer.py", line 340, in handle
+    self.handle_one_request()
+  File "/Library/Python/2.7/site-packages/werkzeug/serving.py", line 267, in handle_one_request
+    return self.run_wsgi()
+  File "/Library/Python/2.7/site-packages/werkzeug/serving.py", line 209, in run_wsgi
+    execute(self.server.app)
+  File "/Library/Python/2.7/site-packages/werkzeug/serving.py", line 199, in execute
+    for data in application_iter:
+  File "/Library/Python/2.7/site-packages/werkzeug/debug/__init__.py", line 284, in debug_application
+    app_iter = self.app(environ, start_response)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1997, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/webser/python/recmdcstbao/myapp/views/push.py", line 24, in test
+    exit()
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site.py", line 360, in __call__
+    raise SystemExit(code)
+SystemExit: None
+Traceback (most recent call last):
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/SocketServer.py", line 295, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/SocketServer.py", line 321, in process_request
+    self.finish_request(request, client_address)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/SocketServer.py", line 334, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/SocketServer.py", line 655, in __init__
+    self.handle()
+  File "/Library/Python/2.7/site-packages/werkzeug/serving.py", line 232, in handle
+    rv = BaseHTTPRequestHandler.handle(self)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/BaseHTTPServer.py", line 340, in handle
+    self.handle_one_request()
+  File "/Library/Python/2.7/site-packages/werkzeug/serving.py", line 267, in handle_one_request
+    return self.run_wsgi()
+  File "/Library/Python/2.7/site-packages/werkzeug/serving.py", line 209, in run_wsgi
+    execute(self.server.app)
+  File "/Library/Python/2.7/site-packages/werkzeug/serving.py", line 199, in execute
+    for data in application_iter:
+  File "/Library/Python/2.7/site-packages/werkzeug/debug/__init__.py", line 284, in debug_application
+    app_iter = self.app(environ, start_response)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1997, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/webser/python/recmdcstbao/myapp/views/push.py", line 24, in test
+    exit()
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site.py", line 360, in __call__
+    raise SystemExit(code)
+SystemExit: None
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/push.py', reloading
+pbkdf2:sha256:50000$5jgzp5Kx$cac0899252e60e90145adc56fe69ea9bccd954f2f7fbf3ebafca7cdcd3a577bb
+----------------------------------------
+Exception happened during processing of request from ('127.0.0.1', 53146)
+----------------------------------------
+----------------------------------------
+Exception happened during processing of request from ('127.0.0.1', 53157)
+----------------------------------------
+----------------------------------------
+Exception happened during processing of request from ('127.0.0.1', 53185)
+----------------------------------------
+----------------------------------------
+Exception happened during processing of request from ('127.0.0.1', 53192)
+----------------------------------------
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+127.0.0.1 - - [01/Jul/2017 00:03:17] "GET /test HTTP/1.1" 200 -
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/push.py', reloading
+pbkdf2:sha256:50000$vPqlK9h4$32b4addd6ce03b15fe800ebe25598c304feb49030899ce9bc33b175e16b475ac
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+127.0.0.1 - - [01/Jul/2017 00:04:27] "GET /test HTTP/1.1" 200 -
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/push.py', reloading
+pbkdf2:sha256:50000$LXRVjFKC$b1de812f667d5f32e45ee85708a30c4bad98e864c3db4fcc9422af6c190654c2
+<User u'18575516501'>
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+Traceback (most recent call last):
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/SocketServer.py", line 295, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/SocketServer.py", line 321, in process_request
+    self.finish_request(request, client_address)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/SocketServer.py", line 334, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/SocketServer.py", line 655, in __init__
+    self.handle()
+  File "/Library/Python/2.7/site-packages/werkzeug/serving.py", line 232, in handle
+    rv = BaseHTTPRequestHandler.handle(self)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/BaseHTTPServer.py", line 340, in handle
+    self.handle_one_request()
+  File "/Library/Python/2.7/site-packages/werkzeug/serving.py", line 267, in handle_one_request
+    return self.run_wsgi()
+  File "/Library/Python/2.7/site-packages/werkzeug/serving.py", line 209, in run_wsgi
+    execute(self.server.app)
+  File "/Library/Python/2.7/site-packages/werkzeug/serving.py", line 199, in execute
+    for data in application_iter:
+  File "/Library/Python/2.7/site-packages/werkzeug/debug/__init__.py", line 284, in debug_application
+    app_iter = self.app(environ, start_response)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1997, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/webser/python/recmdcstbao/myapp/views/push.py", line 25, in test
+    quit()
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site.py", line 360, in __call__
+    raise SystemExit(code)
+SystemExit: None
+Traceback (most recent call last):
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/SocketServer.py", line 295, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/SocketServer.py", line 321, in process_request
+    self.finish_request(request, client_address)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/SocketServer.py", line 334, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/SocketServer.py", line 655, in __init__
+    self.handle()
+  File "/Library/Python/2.7/site-packages/werkzeug/serving.py", line 232, in handle
+    rv = BaseHTTPRequestHandler.handle(self)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/BaseHTTPServer.py", line 340, in handle
+    self.handle_one_request()
+  File "/Library/Python/2.7/site-packages/werkzeug/serving.py", line 267, in handle_one_request
+    return self.run_wsgi()
+  File "/Library/Python/2.7/site-packages/werkzeug/serving.py", line 209, in run_wsgi
+    execute(self.server.app)
+  File "/Library/Python/2.7/site-packages/werkzeug/serving.py", line 199, in execute
+    for data in application_iter:
+  File "/Library/Python/2.7/site-packages/werkzeug/debug/__init__.py", line 284, in debug_application
+    app_iter = self.app(environ, start_response)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1997, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/webser/python/recmdcstbao/myapp/views/push.py", line 25, in test
+    quit()
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site.py", line 360, in __call__
+    raise SystemExit(code)
+SystemExit: None
+Traceback (most recent call last):
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/SocketServer.py", line 295, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/SocketServer.py", line 321, in process_request
+    self.finish_request(request, client_address)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/SocketServer.py", line 334, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/SocketServer.py", line 655, in __init__
+    self.handle()
+  File "/Library/Python/2.7/site-packages/werkzeug/serving.py", line 232, in handle
+    rv = BaseHTTPRequestHandler.handle(self)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/BaseHTTPServer.py", line 340, in handle
+    self.handle_one_request()
+  File "/Library/Python/2.7/site-packages/werkzeug/serving.py", line 267, in handle_one_request
+    return self.run_wsgi()
+  File "/Library/Python/2.7/site-packages/werkzeug/serving.py", line 209, in run_wsgi
+    execute(self.server.app)
+  File "/Library/Python/2.7/site-packages/werkzeug/serving.py", line 199, in execute
+    for data in application_iter:
+  File "/Library/Python/2.7/site-packages/werkzeug/debug/__init__.py", line 284, in debug_application
+    app_iter = self.app(environ, start_response)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1997, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/webser/python/recmdcstbao/myapp/views/push.py", line 25, in test
+    quit()
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site.py", line 360, in __call__
+    raise SystemExit(code)
+SystemExit: None
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/push.py', reloading
+pbkdf2:sha256:50000$jtesHtIT$e8857487c3a2c4bfb3bb30e7ef9dd3294d27bfadb0011334075aa7af5d70576f
+<User u'18575516501'>
+----------------------------------------
+Exception happened during processing of request from ('127.0.0.1', 53832)
+----------------------------------------
+<User u'18575516501'>
+----------------------------------------
+Exception happened during processing of request from ('127.0.0.1', 53835)
+----------------------------------------
+<User u'18575516501'>
+----------------------------------------
+Exception happened during processing of request from ('127.0.0.1', 53857)
+----------------------------------------
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/push.py', reloading
+pbkdf2:sha256:50000$MGL76q2v$da3ded7f1f2466f95e0ca0e4af755c3a55cf1bf545a911b10f72ba445f537848
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+Traceback (most recent call last):
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/SocketServer.py", line 295, in _handle_request_noblock
+    self.process_request(request, client_address)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/SocketServer.py", line 321, in process_request
+    self.finish_request(request, client_address)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/SocketServer.py", line 334, in finish_request
+    self.RequestHandlerClass(request, client_address, self)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/SocketServer.py", line 655, in __init__
+    self.handle()
+  File "/Library/Python/2.7/site-packages/werkzeug/serving.py", line 232, in handle
+    rv = BaseHTTPRequestHandler.handle(self)
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/BaseHTTPServer.py", line 340, in handle
+    self.handle_one_request()
+  File "/Library/Python/2.7/site-packages/werkzeug/serving.py", line 267, in handle_one_request
+    return self.run_wsgi()
+  File "/Library/Python/2.7/site-packages/werkzeug/serving.py", line 209, in run_wsgi
+    execute(self.server.app)
+  File "/Library/Python/2.7/site-packages/werkzeug/serving.py", line 199, in execute
+    for data in application_iter:
+  File "/Library/Python/2.7/site-packages/werkzeug/debug/__init__.py", line 284, in debug_application
+    app_iter = self.app(environ, start_response)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1997, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/webser/python/recmdcstbao/myapp/views/push.py", line 25, in test
+    exit()
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/site.py", line 360, in __call__
+    raise SystemExit(code)
+SystemExit: None
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/push.py', reloading
+pbkdf2:sha256:50000$uoOcPiAo$20f32c92b60cb498c842f027e6a01726a4bec27083c4899ca747365c9157755e
+<User u'18575516501'>
+----------------------------------------
+Exception happened during processing of request from ('127.0.0.1', 53923)
+----------------------------------------
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+127.0.0.1 - - [01/Jul/2017 00:05:51] "GET /test HTTP/1.1" 200 -
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/push.py', reloading
+pbkdf2:sha256:50000$32mTrmHM$a693da881580e597f0714dd7fca4184af4f0dcf599c3517148e8172a5fd85cdd
+<User u'18575516501'>
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+127.0.0.1 - - [01/Jul/2017 00:06:16] "GET /test HTTP/1.1" 200 -
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/push.py', reloading
+pbkdf2:sha256:50000$kHL4fJmF$a1bbef36cd02c1b9cf5172d6b2802da67ae8529845dab0cba6dfeb98dd5cc1de
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/push.py', reloading
+pbkdf2:sha256:50000$sWOPUfWU$8478670d01b8361ac7a7cbc955f2e06533b1f1b77df84f6e048f7e77a11363e9
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+127.0.0.1 - - [01/Jul/2017 00:06:36] "GET /test HTTP/1.1" 200 -
+ * Detected change in '/webser/python/recmdcstbao/myapp/models.py', reloading
+pbkdf2:sha256:50000$8HNsUtw8$20979b15dcd2cdade764493c08856a5904c7a684bda6a06124cea6e86862c22b
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+ * Detected change in '/webser/python/recmdcstbao/myapp/models.py', reloading
+pbkdf2:sha256:50000$hLBhX4mG$157ad7dc763430d92af7e049b6cd686e8be2826efc6871aa0771a878cddb3a17
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+ * Detected change in '/webser/python/recmdcstbao/myapp/models.py', reloading
+pbkdf2:sha256:50000$6BIEZiG6$03593b121828fea7eb1d9feaa60ecbab6c086327ebef4ee6d6add22101406a82
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+ * Detected change in '/webser/python/recmdcstbao/myapp/models.py', reloading
+pbkdf2:sha256:50000$9qeE2CRS$fcf27c6348d95f7e1c92ec9d461e7ab5d10afc1fe2d9f32e44aed0fa8d642863
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+ * Detected change in '/webser/python/recmdcstbao/myapp/models.py', reloading
+pbkdf2:sha256:50000$SW2P3wZ8$12baac83ae2813ef840ac422610099fe576e93605a1e0619513cce1ee79de55f
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+ * Detected change in '/webser/python/recmdcstbao/myapp/models.py', reloading
+pbkdf2:sha256:50000$txsP2wOj$610964ce17a143547c95393fa109f82456ab810bdb91385dea969cc60570cf04
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+ * Detected change in '/webser/python/recmdcstbao/myapp/models.py', reloading
+pbkdf2:sha256:50000$4D8arsdW$c874483db21c2d113d71e5c6b4491978addcd5b8bbba2c59a3c8075e67d3894c
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+127.0.0.1 - - [01/Jul/2017 11:11:35] "GET /test HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 11:11:35] "GET /favicon.ico HTTP/1.0" 404 -
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/push.py', reloading
+pbkdf2:sha256:50000$SMLSzaMx$f174aba97af1813e58f99ebd578389ad6c41afff429b9d57d9b1a1660780c03b
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/push.py', reloading
+pbkdf2:sha256:50000$lLpxmyMF$f3e76ec52371888f8a460c573678730dd56d196ffb69c41223710860bae0c7b1
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+127.0.0.1 - - [01/Jul/2017 11:12:54] "GET /api HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 11:12:56] "GET /api HTTP/1.0" 200 -
+ * Detected change in '/webser/python/recmdcstbao/myapp/models.py', reloading
+pbkdf2:sha256:50000$1od34zWx$72a8ba9de092fe12d0d4af017188142ee9a55012ac7f6215e892072509d5bc2c
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+ * Detected change in '/webser/python/recmdcstbao/myapp/models.py', reloading
+pbkdf2:sha256:50000$nJ2Db8nH$b7fe099ab3917864ee34153faac1bd0f1c52e2331f7f929a29b60f6a9f1eaabb
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+127.0.0.1 - - [01/Jul/2017 11:23:57] "GET /api/customer/save HTTP/1.0" 404 -
+127.0.0.1 - - [01/Jul/2017 11:25:23] "GET /api/customer/save HTTP/1.0" 404 -
+127.0.0.1 - - [01/Jul/2017 11:25:49] "GET /api/customer/save HTTP/1.0" 404 -
+127.0.0.1 - - [01/Jul/2017 11:27:45] "GET /api/customer/save HTTP/1.0" 404 -
