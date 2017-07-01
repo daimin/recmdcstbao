@@ -792,3 +792,39 @@ pbkdf2:sha256:50000$1FDAPZGP$4f3a22e6400b2d19de430b28083847fdb1e3f20b9c87e9182d0
 127.0.0.1 - - [01/Jul/2017 15:50:21] "GET /api/customer/2 HTTP/1.0" 404 -
 127.0.0.1 - - [01/Jul/2017 15:50:32] "GET /api/customer/list HTTP/1.0" 200 -
 127.0.0.1 - - [01/Jul/2017 15:51:58] "GET /api/company/list HTTP/1.0" 200 -
+ * Detected change in '/webser/python/recmdcstbao/myapp/models.py', reloading
+pbkdf2:sha256:50000$mMm09LNh$5dee248c9c8fe441be50879163a9dcaa735cd1657ab0770bd962573e8b333f9e
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+/Library/Python/2.7/site-packages/sqlalchemy/sql/compiler.py:624: SAWarning: Can't resolve label reference 'created_time desc'; converting to text() (this warning may be suppressed after 10 occurrences)
+  util.ellipses_string(element.element))
+127.0.0.1 - - [01/Jul/2017 15:52:39] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 15:52:55] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 15:53:02] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 15:53:10] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 15:53:11] "GET /favicon.ico HTTP/1.0" 404 -
+127.0.0.1 - - [01/Jul/2017 15:53:22] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 15:53:43] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 15:53:53] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 15:54:55] "GET /api/customer/1 HTTP/1.0" 404 -
+127.0.0.1 - - [01/Jul/2017 15:55:08] "GET /api/customer/get/1 HTTP/1.0" 404 -
+127.0.0.1 - - [01/Jul/2017 15:55:12] "GET /api/customer/1 HTTP/1.0" 404 -
+127.0.0.1 - - [01/Jul/2017 15:55:59] "GET /api/customer/1 HTTP/1.0" 404 -
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/customer.py', reloading
+pbkdf2:sha256:50000$wjwnLvIr$0709940dfb009e786517a0ec284ceea7a48b0b0484385ccd47b9b0143bb62fe4
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+127.0.0.1 - - [01/Jul/2017 15:56:13] "GET /api/customer/1 HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 15:56:13] "GET /api/customer/1 HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 15:56:15] "GET /api/customer/1 HTTP/1.0" 200 -
+/Library/Python/2.7/site-packages/sqlalchemy/sql/compiler.py:624: SAWarning: Can't resolve label reference 'created_time desc'; converting to text() (this warning may be suppressed after 10 occurrences)
+  util.ellipses_string(element.element))
+127.0.0.1 - - [01/Jul/2017 15:56:35] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 15:56:36] "GET /xxx HTTP/1.0" 404 -
+127.0.0.1 - - [01/Jul/2017 15:58:23] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 15:58:24] "GET /xxx HTTP/1.0" 404 -
+127.0.0.1 - - [01/Jul/2017 15:58:26] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 15:58:26] "GET /xxx HTTP/1.0" 404 -
+127.0.0.1 - - [01/Jul/2017 15:58:42] "GET /xxx HTTP/1.0" 404 -

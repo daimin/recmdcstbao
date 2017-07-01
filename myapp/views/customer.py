@@ -8,7 +8,7 @@ from myapp.models import CustomerModel
 from flask import request
 import sqlalchemy
 
-@app.route('/api/company/<id>', methods=['GET'])
+@app.route('/api/customer/<id>', methods=['GET'])
 def get(id = None):
     return lib.params.response_std(CustomerModel.query.get(id))
 
