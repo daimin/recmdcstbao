@@ -16,7 +16,7 @@ def get(id = None):
 @app.route('/api/customer/list', methods=['GET'])
 def get_list():
     customers = CustomerModel.query.order_by("created_time desc").all()
-    return lib.params.response_std([customers])
+    return lib.params.response_std(customers)
 
 @app.route('/api/customer/save', methods=['POST'])
 def save():
@@ -29,7 +29,8 @@ def save():
 @app.route('/api/customer/recommend', methods=['POST'])
 def recommend():
     try:
-        customer_id = request.form['customer_id']
+        if 'customer_id' in request.form:
+            customer_id = request.form['customer_id']
         if customer_id < 0:
             customer_id = save_customer()
         company_customer = CompanyCustomerModel(request.form['company_id'], customer_id)
