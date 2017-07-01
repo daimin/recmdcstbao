@@ -38,13 +38,15 @@ class CompanyModel(db.Model):
     amount = db.Column(db.String(255), unique=True)
     remark = db.Column(db.String(200))
     avatar = db.Column(db.String(255))
+    commission = db.Column(db.DECIMAL(10,4))
 
-    def __init__(self, name, tel, amount, remark, avatar):
+    def __init__(self, name, tel, amount, remark, avatar, commission):
         self.name = name
         self.tel = tel
         self.amount = amount
         self.remark = remark
         self.avatar = avatar
+        self.commission = commission
 
     def __repr__(self):
         return '<Company %r>' % self.name

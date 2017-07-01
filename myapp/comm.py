@@ -17,6 +17,7 @@ import socket
 import urllib
 import json
 from sqlalchemy.ext.declarative import DeclarativeMeta
+import decimal
 
 from itertools import izip 
 
@@ -234,6 +235,8 @@ class AlchemyEncoder(json.JSONEncoder):
                         fields[field] = data.isoformat()
                     elif isinstance(data, datetime.timedelta):
                         fields[field] = (datetime.datetime.min + data).time().isoformat()
+                    elif isinstance(data, decimal.Decimal):
+                        fields[field] = float(data)
                     else:
                         fields[field] = None
             # a json-encodable dict
