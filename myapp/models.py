@@ -42,7 +42,13 @@ class CustomerModel(db.Model):
     remark = db.Column(db.String(100))
 
     def __init__(self, name, mobile_tel, gender, remark):
-        pass
+        self.name = name
+        self.mobile_tel = mobile_tel
+        self.gender = gender
+        self.remark = remark
+
+    def __repr__(self):
+        return '<Customer %r>' % self.name
 
 
 # Create company model.

@@ -751,3 +751,44 @@ Traceback (most recent call last):
     ^
 IndentationError: expected an indented block
 pbkdf2:sha256:50000$xjA9kiKY$5f1c3e276d51d346c57076786d31d17b67fe53ef046017140238c965342dedf0
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+/Library/Python/2.7/site-packages/sqlalchemy/sql/compiler.py:624: SAWarning: Can't resolve label reference 'created_time desc'; converting to text() (this warning may be suppressed after 10 occurrences)
+  util.ellipses_string(element.element))
+127.0.0.1 - - [01/Jul/2017 15:33:47] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 15:35:11] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 15:36:13] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 15:36:23] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 15:36:38] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 15:39:20] "GET /api/company/list HTTP/1.0" 200 -
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/customer.py', reloading
+pbkdf2:sha256:50000$DdcOhP0z$245d2c07f2c9a7783c480392f5df9693138c403b947a1b9928251192583f0087
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+/Library/Python/2.7/site-packages/sqlalchemy/sql/compiler.py:624: SAWarning: Can't resolve label reference 'created_time desc'; converting to text() (this warning may be suppressed after 10 occurrences)
+  util.ellipses_string(element.element))
+127.0.0.1 - - [01/Jul/2017 15:40:00] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 15:41:39] "GET /api/company/list HTTP/1.0" 200 -
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/customer.py', reloading
+pbkdf2:sha256:50000$1FDAPZGP$4f3a22e6400b2d19de430b28083847fdb1e3f20b9c87e9182d01a5eca380a4aa
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+/Library/Python/2.7/site-packages/sqlalchemy/sql/compiler.py:624: SAWarning: Can't resolve label reference 'created_time desc'; converting to text() (this warning may be suppressed after 10 occurrences)
+  util.ellipses_string(element.element))
+127.0.0.1 - - [01/Jul/2017 15:41:59] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 15:41:59] "POST /api/customer/save HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 15:42:05] "POST /api/customer/save HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 15:44:00] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 15:45:38] "POST /api/customer/save HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 15:48:11] "GET /api/customer/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 15:48:27] "GET /api/customer/1 HTTP/1.0" 404 -
+127.0.0.1 - - [01/Jul/2017 15:49:53] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 15:50:00] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 15:50:07] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 15:50:21] "GET /api/customer/2 HTTP/1.0" 404 -
+127.0.0.1 - - [01/Jul/2017 15:50:32] "GET /api/customer/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 15:51:58] "GET /api/company/list HTTP/1.0" 200 -
