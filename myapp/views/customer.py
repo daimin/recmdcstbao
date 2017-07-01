@@ -20,7 +20,6 @@ def get_list():
     if 'company_id' in request.form:
         company_id = request.form['company_id']
     if company_id > 0:
-        # user_customer_ids = CompanyCustomerModel.query.filter_by(user_id=user_id, company_id=company_id).all()
         user_customer_ids = db.session.query(CompanyCustomerModel.user_customer_id).filter_by(user_id=user_id, company_id=company_id).all()
     else:
         user_customer_ids = db.session.query(CompanyCustomerModel.user_customer_id).filter_by(user_id=user_id).all()
