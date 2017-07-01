@@ -50,7 +50,6 @@ class CustomerModel(db.Model):
     def __repr__(self):
         return '<Customer %r>' % self.name
 
-
 # Create company model.
 class CompanyModel(db.Model):
     __tablename__ = 'company'
@@ -68,3 +67,13 @@ class CompanyModel(db.Model):
 
     def __repr__(self):
         return '<Company %r>' % self.name
+
+# Create company customer model.
+class CompanyCustomerModel(db.Model):
+    __tablename__ = 'company_customer'
+    company_id = db.Column(db.Integer, primary_key=True)
+    customer_id = db.Column(db.Integer, primary_key=True)
+
+    def __init__(self, company_id, customer_id):
+        self.company_id = company_id
+        self.customer_id = customer_id

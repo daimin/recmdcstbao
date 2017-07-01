@@ -828,3 +828,351 @@ pbkdf2:sha256:50000$wjwnLvIr$0709940dfb009e786517a0ec284ceea7a48b0b0484385ccd47b
 127.0.0.1 - - [01/Jul/2017 15:58:26] "GET /api/company/list HTTP/1.0" 200 -
 127.0.0.1 - - [01/Jul/2017 15:58:26] "GET /xxx HTTP/1.0" 404 -
 127.0.0.1 - - [01/Jul/2017 15:58:42] "GET /xxx HTTP/1.0" 404 -
+127.0.0.1 - - [01/Jul/2017 16:08:30] "GET /xxx HTTP/1.0" 404 -
+127.0.0.1 - - [01/Jul/2017 16:08:34] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:08:34] "GET /xxx HTTP/1.0" 404 -
+127.0.0.1 - - [01/Jul/2017 16:12:46] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:31:52] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:32:46] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:33:50] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:33:50] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:35:35] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:37:05] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:38:47] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:39:32] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:39:43] "GET /api/company/list HTTP/1.0" 200 -
+ * Detected change in '/webser/python/recmdcstbao/myapp/models.py', reloading
+pbkdf2:sha256:50000$x6Ga9qTh$5f55f24be514c1a8e9206bf6a666bfdde06bd18b9ffe2a907376fdb1ec8a5be5
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+/Library/Python/2.7/site-packages/sqlalchemy/sql/compiler.py:624: SAWarning: Can't resolve label reference 'created_time desc'; converting to text() (this warning may be suppressed after 10 occurrences)
+  util.ellipses_string(element.element))
+127.0.0.1 - - [01/Jul/2017 16:40:34] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:40:35] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:40:41] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:40:42] "GET /api/company/list HTTP/1.0" 200 -
+ * Detected change in '/webser/python/recmdcstbao/myapp/models.py', reloading
+pbkdf2:sha256:50000$NC2hsDSH$64a185eb7e97d66e7a30fb3594be0ba7e26ca95e98ccc2bd6d40165676f3a23b
+Exception in thread Thread-1 (most likely raised during interpreter shutdown):
+Traceback (most recent call last):
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/threading.py", line 810, in __bootstrap_inner
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/threading.py", line 763, in run
+  File "/Library/Python/2.7/site-packages/werkzeug/serving.py", line 702, in inner
+  File "/Library/Python/2.7/site-packages/werkzeug/serving.py", line 539, in serve_forever
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/SocketServer.py", line 241, in serve_forever
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/threading.py", line 586, in set
+  File "/System/Library/Frameworks/Python.framework/Versions/2.7/lib/python2.7/threading.py", line 407, in notifyAll
+<type 'exceptions.TypeError'>: 'NoneType' object is not callable
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+/Library/Python/2.7/site-packages/sqlalchemy/sql/compiler.py:624: SAWarning: Can't resolve label reference 'created_time desc'; converting to text() (this warning may be suppressed after 10 occurrences)
+  util.ellipses_string(element.element))
+127.0.0.1 - - [01/Jul/2017 16:40:57] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:40:57] "GET /api/company/list HTTP/1.0" 200 -
+ * Detected change in '/webser/python/recmdcstbao/myapp/models.py', reloading
+pbkdf2:sha256:50000$b46VWqsR$15890ec8c01d05b15713a01875918870979981078ee1f095e7322fed51052de0
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+/Library/Python/2.7/site-packages/sqlalchemy/sql/compiler.py:624: SAWarning: Can't resolve label reference 'created_time desc'; converting to text() (this warning may be suppressed after 10 occurrences)
+  util.ellipses_string(element.element))
+127.0.0.1 - - [01/Jul/2017 16:41:13] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:41:13] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:41:49] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:41:50] "GET /api/company/list HTTP/1.0" 200 -
+ * Detected change in '/webser/python/recmdcstbao/myapp/models.py', reloading
+pbkdf2:sha256:50000$MP85l2JS$9e6c5692902d15d792a55ce2e5209ed3176808605e95f97ab84e8329a2c0a012
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+/Library/Python/2.7/site-packages/sqlalchemy/sql/compiler.py:624: SAWarning: Can't resolve label reference 'created_time desc'; converting to text() (this warning may be suppressed after 10 occurrences)
+  util.ellipses_string(element.element))
+127.0.0.1 - - [01/Jul/2017 16:43:44] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:43:44] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:44:00] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:44:00] "GET /api/company/list HTTP/1.0" 200 -
+ * Detected change in '/webser/python/recmdcstbao/myapp/models.py', reloading
+pbkdf2:sha256:50000$YrsgTsK6$b6ee75712a1f29fc9b90bd93cdba673e84ffb3f5203ed3641ea4c947ef32d569
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+ * Detected change in '/webser/python/recmdcstbao/myapp/models.py', reloading
+pbkdf2:sha256:50000$7JabfEg4$302e14d9720e8e4453b4812a9481971c437867fce293db92781823da722939e6
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+ * Detected change in '/webser/python/recmdcstbao/myapp/models.py', reloading
+pbkdf2:sha256:50000$dW7voYIU$2fe33f74a42b9f9475dd8700e1447b9ef3c91df10cc16913cd182c4d036f5f75
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+ * Detected change in '/webser/python/recmdcstbao/myapp/models.py', reloading
+pbkdf2:sha256:50000$q1YlpEYJ$7ccc894a9d4e4fcc5fcff7994036a25a2af2f1b3e78566b1f9ef260106046f08
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+/Library/Python/2.7/site-packages/sqlalchemy/sql/compiler.py:624: SAWarning: Can't resolve label reference 'created_time desc'; converting to text() (this warning may be suppressed after 10 occurrences)
+  util.ellipses_string(element.element))
+127.0.0.1 - - [01/Jul/2017 16:45:06] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:45:07] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:47:34] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:47:35] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:47:59] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:48:49] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:49:28] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:50:02] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:51:19] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:51:19] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:51:59] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:52:30] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:52:33] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:52:54] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:53:40] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:53:41] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:54:02] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:54:03] "GET /api/company/list HTTP/1.0" 200 -
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/customer.py', reloading
+pbkdf2:sha256:50000$39RrhccY$0f9f4125bf79b7f0fc3732e155caee2e2987243e2a3b56466c8313884b3915e8
+ * Restarting with stat
+Traceback (most recent call last):
+  File "index.py", line 6, in <module>
+    from myapp import app
+  File "/webser/python/recmdcstbao/myapp/__init__.py", line 15, in <module>
+    from views import *
+  File "/webser/python/recmdcstbao/myapp/views/__init__.py", line 5, in <module>
+    from customer import *
+  File "/webser/python/recmdcstbao/myapp/views/customer.py", line 34
+    def 
+       ^
+SyntaxError: invalid syntax
+pbkdf2:sha256:50000$xp6hXQdJ$52238b323f3519883999b8a49502c94becb9b7c92a69c512037a039f5f630e1a
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+/Library/Python/2.7/site-packages/sqlalchemy/sql/compiler.py:624: SAWarning: Can't resolve label reference 'created_time desc'; converting to text() (this warning may be suppressed after 10 occurrences)
+  util.ellipses_string(element.element))
+127.0.0.1 - - [01/Jul/2017 16:56:05] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:56:05] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:56:10] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:56:31] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:56:32] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:56:56] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 16:57:03] "GET /api/company/list HTTP/1.0" 200 -
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/customer.py', reloading
+pbkdf2:sha256:50000$hBlgAA34$1b7cbae94c326b88c1c047355bd3bb5013329eee5073ce85810ab6cc4d3fac17
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/customer.py', reloading
+pbkdf2:sha256:50000$jsmZrYWV$63bfbe325156343134dec1e61ce3b543b789267566925bdfa4bcaf5e88ac83a2
+ * Restarting with stat
+Traceback (most recent call last):
+  File "index.py", line 6, in <module>
+    from myapp import app
+  File "/webser/python/recmdcstbao/myapp/__init__.py", line 15, in <module>
+    from views import *
+  File "/webser/python/recmdcstbao/myapp/views/__init__.py", line 5, in <module>
+    from customer import *
+  File "/webser/python/recmdcstbao/myapp/views/customer.py", line 36
+    
+                ^
+SyntaxError: invalid syntax
+pbkdf2:sha256:50000$8ASvp8qp$46746c2faec9fb793f290cb53cf1934c4edaa275c4d7295bddb59e33cdac5a00
+Traceback (most recent call last):
+  File "index.py", line 6, in <module>
+    from myapp import app
+  File "/webser/python/recmdcstbao/myapp/__init__.py", line 15, in <module>
+    from views import *
+  File "/webser/python/recmdcstbao/myapp/views/__init__.py", line 5, in <module>
+    from customer import *
+  File "/webser/python/recmdcstbao/myapp/views/customer.py", line 36
+    
+                ^
+SyntaxError: invalid syntax
+Traceback (most recent call last):
+  File "index.py", line 6, in <module>
+    from myapp import app
+  File "/webser/python/recmdcstbao/myapp/__init__.py", line 15, in <module>
+    from views import *
+  File "/webser/python/recmdcstbao/myapp/views/__init__.py", line 5, in <module>
+    from customer import *
+  File "/webser/python/recmdcstbao/myapp/views/customer.py", line 36
+    
+                ^
+SyntaxError: invalid syntax
+Traceback (most recent call last):
+  File "index.py", line 6, in <module>
+    from myapp import app
+  File "/webser/python/recmdcstbao/myapp/__init__.py", line 15, in <module>
+    from views import *
+  File "/webser/python/recmdcstbao/myapp/views/__init__.py", line 5, in <module>
+    from customer import *
+  File "/webser/python/recmdcstbao/myapp/views/customer.py", line 36
+    
+                ^
+SyntaxError: invalid syntax
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+127.0.0.1 - - [01/Jul/2017 16:58:47] "POST /api/customer/save HTTP/1.0" 500 -
+Traceback (most recent call last):
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1997, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1985, in wsgi_app
+    response = self.handle_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1540, in handle_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1982, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1614, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1517, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1612, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Library/Python/2.7/site-packages/flask/app.py", line 1598, in dispatch_request
+    return self.view_functions[rule.endpoint](**req.view_args)
+  File "/webser/python/recmdcstbao/myapp/views/customer.py", line 31, in save
+    return lib.params.response_std(db.session.id)
+AttributeError: 'scoped_session' object has no attribute 'id'
+/Library/Python/2.7/site-packages/sqlalchemy/sql/compiler.py:624: SAWarning: Can't resolve label reference 'created_time desc'; converting to text() (this warning may be suppressed after 10 occurrences)
+  util.ellipses_string(element.element))
+127.0.0.1 - - [01/Jul/2017 16:59:12] "GET /api/company/list HTTP/1.0" 200 -
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/customer.py', reloading
+pbkdf2:sha256:50000$0A0ZmVar$aaf52cc5c18efd845aaa5c8f65c695dfb267a697a8dae9a28ad7b5b66444e63f
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/customer.py', reloading
+pbkdf2:sha256:50000$jgIGB9Rs$337301471fb5eba74660e166ef25b6fa992210b03ec244e8430c0032b6fbcd57
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+127.0.0.1 - - [01/Jul/2017 17:00:25] "POST /api/customer/save HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 17:00:31] "POST /api/customer/save HTTP/1.0" 200 -
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/customer.py', reloading
+pbkdf2:sha256:50000$xz4FXadg$5fa8ac22e28aeb396d8bf473f99491e528c518cf090a016fcd4971f0a1d46bfd
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+/Library/Python/2.7/site-packages/sqlalchemy/sql/compiler.py:624: SAWarning: Can't resolve label reference 'created_time desc'; converting to text() (this warning may be suppressed after 10 occurrences)
+  util.ellipses_string(element.element))
+127.0.0.1 - - [01/Jul/2017 17:00:49] "GET /api/company/list HTTP/1.0" 200 -
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/customer.py', reloading
+pbkdf2:sha256:50000$EPxhYZpp$3ad4435c4ef1d9e9cfadbbe2dc47b9b9e40a0819c71e016618cc249bde544ca6
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+127.0.0.1 - - [01/Jul/2017 17:02:45] "POST /api/customer/save HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 17:02:49] "POST /api/customer/save HTTP/1.0" 200 -
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/customer.py', reloading
+pbkdf2:sha256:50000$kgttDscO$d8d434ea724f41146c29b20ce5dd3140a9a915bfaa6e8ef2ce76860d3b8d5401
+ * Restarting with stat
+Traceback (most recent call last):
+  File "index.py", line 6, in <module>
+    from myapp import app
+  File "/webser/python/recmdcstbao/myapp/__init__.py", line 15, in <module>
+    from views import *
+  File "/webser/python/recmdcstbao/myapp/views/__init__.py", line 5, in <module>
+    from customer import *
+  File "/webser/python/recmdcstbao/myapp/views/customer.py", line 34
+    
+                                                      ^
+SyntaxError: invalid syntax
+pbkdf2:sha256:50000$P5jvolYD$0bb648d5090919b975147685e76b6a07e19319baf00523d86e6942e9b28fe178
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+127.0.0.1 - - [01/Jul/2017 17:04:47] "POST /api/customer/recommend HTTP/1.0" 200 -
+/Library/Python/2.7/site-packages/sqlalchemy/sql/compiler.py:624: SAWarning: Can't resolve label reference 'created_time desc'; converting to text() (this warning may be suppressed after 10 occurrences)
+  util.ellipses_string(element.element))
+127.0.0.1 - - [01/Jul/2017 17:06:29] "GET /api/company/list HTTP/1.0" 200 -
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/customer.py', reloading
+pbkdf2:sha256:50000$jZahx7yn$51e902348e98fcdc02c4c7b673b11296986b56ce19cac745efcd43133b175d23
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/customer.py', reloading
+pbkdf2:sha256:50000$Vgd8MAKI$f3332c487907eae6c720ed0999056d9dc5f463b798852c0f1cb4d9c3a0d782da
+ * Restarting with stat
+Traceback (most recent call last):
+  File "index.py", line 6, in <module>
+    from myapp import app
+  File "/webser/python/recmdcstbao/myapp/__init__.py", line 15, in <module>
+    from views import *
+  File "/webser/python/recmdcstbao/myapp/views/__init__.py", line 5, in <module>
+    from customer import *
+  File "/webser/python/recmdcstbao/myapp/views/customer.py", line 45
+    except Exception, e:
+         ^
+IndentationError: expected an indented block
+pbkdf2:sha256:50000$1jcukb7v$6b7ca192577c21dbee8cbe5c4151539823523141a5dad7efdd35f23e412810dd
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+127.0.0.1 - - [01/Jul/2017 17:10:53] "POST /api/customer/save HTTP/1.0" 200 -
+/Library/Python/2.7/site-packages/sqlalchemy/sql/compiler.py:624: SAWarning: Can't resolve label reference 'created_time desc'; converting to text() (this warning may be suppressed after 10 occurrences)
+  util.ellipses_string(element.element))
+127.0.0.1 - - [01/Jul/2017 17:11:01] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 17:11:01] "POST /api/customer/save HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 17:11:19] "GET /api/company/list HTTP/1.0" 200 -
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/customer.py', reloading
+pbkdf2:sha256:50000$MECedOt8$04dbaecc5e1607934b0c7eb4c5a341e4670deca6227d6ae837d7a2b5135d4c8e
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+/Library/Python/2.7/site-packages/sqlalchemy/sql/compiler.py:624: SAWarning: Can't resolve label reference 'created_time desc'; converting to text() (this warning may be suppressed after 10 occurrences)
+  util.ellipses_string(element.element))
+127.0.0.1 - - [01/Jul/2017 17:11:37] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 17:12:16] "GET /api/company/list HTTP/1.0" 200 -
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/customer.py', reloading
+pbkdf2:sha256:50000$PjAeb4iR$53a916b2b6b69498ba06818c06210247569178be6f298f6b78b3c8a51b7c19f2
+ * Restarting with stat
+Traceback (most recent call last):
+  File "index.py", line 6, in <module>
+    from myapp import app
+  File "/webser/python/recmdcstbao/myapp/__init__.py", line 15, in <module>
+    from views import *
+  File "/webser/python/recmdcstbao/myapp/views/__init__.py", line 5, in <module>
+    from customer import *
+  File "/webser/python/recmdcstbao/myapp/views/customer.py", line 32
+    return lib.params.response_std([])
+         ^
+SyntaxError: invalid syntax
+pbkdf2:sha256:50000$Pii0Xie4$4d0124faad99facde490b86c22ad545aed5eb1f337532908f68210266e8db669
+Traceback (most recent call last):
+  File "index.py", line 6, in <module>
+    from myapp import app
+  File "/webser/python/recmdcstbao/myapp/__init__.py", line 15, in <module>
+    from views import *
+  File "/webser/python/recmdcstbao/myapp/views/__init__.py", line 5, in <module>
+    from customer import *
+  File "/webser/python/recmdcstbao/myapp/views/customer.py", line 31
+    customer_id = request.form[]
+                               ^
+SyntaxError: invalid syntax
+Traceback (most recent call last):
+  File "index.py", line 6, in <module>
+    from myapp import app
+  File "/webser/python/recmdcstbao/myapp/__init__.py", line 15, in <module>
+    from views import *
+  File "/webser/python/recmdcstbao/myapp/views/__init__.py", line 5, in <module>
+    from customer import *
+  File "/webser/python/recmdcstbao/myapp/views/customer.py", line 33
+    return lib.params.response_std([])
+         ^
+SyntaxError: invalid syntax
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+/Library/Python/2.7/site-packages/sqlalchemy/sql/compiler.py:624: SAWarning: Can't resolve label reference 'created_time desc'; converting to text() (this warning may be suppressed after 10 occurrences)
+  util.ellipses_string(element.element))
+127.0.0.1 - - [01/Jul/2017 17:18:47] "GET /api/company/list HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 17:19:22] "GET /api/company/list HTTP/1.0" 200 -
