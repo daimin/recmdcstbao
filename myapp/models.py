@@ -50,9 +50,10 @@ class CompanyModel(db.Model):
 # Create company customer model.
 class CompanyCustomerModel(db.Model):
     __tablename__ = 'company_customer'
-    company_id = db.Column(db.Integer, primary_key=True)
-    customer_id = db.Column(db.Integer, primary_key=True)
+    id = db.Column(db.Integer, primary_key=True)
+    company_id = db.Column(db.Integer)
+    user_customer_id = db.Column(db.Integer)
 
-    def __init__(self, company_id, customer_id):
+    def __init__(self, company_id, user_customer_id):
         self.company_id = company_id
-        self.customer_id = customer_id
+        self.user_customer_id = user_customer_id

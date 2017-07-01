@@ -41,8 +41,8 @@ def recommend():
             customer_ids.append(save_customer())
 
         company_id = request.form['company_id']
-        for customer_id in customer_ids:
-            company_customer = CompanyCustomerModel(company_id, customer_id)
+        for user_customer_id in customer_ids:
+            company_customer = CompanyCustomerModel(company_id, user_customer_id)
             db.session.add(company_customer)
             db.session.commit()
 
