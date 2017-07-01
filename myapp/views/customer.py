@@ -19,6 +19,12 @@ def get_list():
     company_id = 0
     if 'company_id' in request.form:
         company_id = request.form['company_id']
+    if company_id > 0:
+        user_customer_ids = CompanyCustomerModel.query("user_customer_id").filter_by(user_id=user_id, company_id=company_id).all()
+    else:
+        user_customer_ids = CompanyCustomerModel.query('user_customer_id').filter_by(user_id=user_id).all()
+
+    print user_customer_ids
 
     sql = "SELECT * FROM user_customer WHERE user_id = " + str(user_id)
     if company_id > 0:
@@ -51,7 +57,7 @@ def recommend():
 
         company_id = request.form['company_id']
         for user_customer_id in customer_ids:
-            company_customer = CompanyCustomerModel(company_id, user_customer_id)
+            company_customer = CompanyCustomerModel(user_id, company_id, user_customer_id)
             db.session.add(company_customer)
             db.session.commit()
 
