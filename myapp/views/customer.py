@@ -7,6 +7,7 @@ from myapp import lib
 from myapp.models import CustomerModel
 from myapp.models import CompanyCustomerModel
 from flask import request
+from flask import render_template
 import sqlalchemy
 
 @app.route('/api/customer/<id>', methods=['GET'])
@@ -49,3 +50,7 @@ def save_customer():
         raise e
     except Exception, e:
         raise e
+
+@app.route('/customer/confirm', methods=['GET', 'POST'])
+def customer_confirm():
+    return render_template('customer_confirm.html', name='')
