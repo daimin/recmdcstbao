@@ -21,10 +21,8 @@ def get_list():
         company_id = request.args['company_id']
     if company_id > 0:
         user_customer_ids = db.session.query(CompanyCustomerModel.user_customer_id).filter_by(user_id=user_id, company_id=company_id).all()
-    else:
-        user_customer_ids = db.session.query(CompanyCustomerModel.user_customer_id).filter_by(user_id=user_id).all()
-    user_customer_id2s = []
 
+    user_customer_id2s = []
     for user_customer_id in user_customer_ids:
         user_customer_id2s.append(user_customer_id[0])
 
