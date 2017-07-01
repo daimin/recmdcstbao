@@ -15,7 +15,15 @@ def get(id = None):
 
 @app.route('/api/customer/list', methods=['GET'])
 def get_list():
-    customers = UserCustomerModel.query.order_by("created_time desc").all()
+    company_id = 0
+    if 'company_id' in request.form:
+        company_id = request.form['company_id']
+
+    sql = "SELECT * FROM user_customer WHERE user_id = " + str(user_id)
+    if company_id > 0:
+        sql += " AND id NOT IN (SELECT user_customer_id FROM company_customer WHERE company_id = " + str(company_id) + ")"
+
+    customers = db.session.execute(sql).fetchall()
     return lib.params.response_std(customers)
 
 @app.route('/api/customer/save', methods=['POST'])
