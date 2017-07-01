@@ -35,12 +35,14 @@ class CompanyModel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(20))
     tel = db.Column(db.String(20), unique=True)
+    amount = db.Column(db.String(255), unique=True)
     remark = db.Column(db.String(200))
     avatar = db.Column(db.String(255))
 
-    def __init__(self, name, tel, remark, avatar):
+    def __init__(self, name, tel, amount, remark, avatar):
         self.name = name
         self.tel = tel
+        self.amount = amount
         self.remark = remark
         self.avatar = avatar
 
