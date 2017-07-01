@@ -11,5 +11,7 @@ app.config.from_object('myapp.conf')
 
 db = SQLAlchemy(app)
 
-from models import UserModel
+user_id = 1
+
+from models import *
 from views import *

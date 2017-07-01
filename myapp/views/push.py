@@ -9,7 +9,6 @@ from myapp import comm
 from myapp import lib
 from myapp import conf
 from myapp import app
-from myapp.models import UserModel
 
 import math
 import time
