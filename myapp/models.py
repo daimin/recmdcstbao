@@ -31,6 +31,7 @@ class UserModel(db.Model):
     def __unicode__(self):
         return self.mobile_tel
 
+
 # Create customer model.
 class CustomerModel(db.Model):
     __tablename__ = 'customer'
@@ -41,5 +42,21 @@ class CustomerModel(db.Model):
     remark = db.Column(db.String(100))
 
     def __init__(self, name, mobile_tel, gender, remark):
+        pass
 
 
+# Create company model.
+class CompanyModel(db.Model):
+    __tablename__ = 'company'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(20))
+    tel = db.Column(db.String(20), unique=True)
+    remark = db.Column(db.String(200))
+
+    def __init__(self, name, tel, remark):
+        self.name = name
+        self.tel = tel
+        self.remark = remark
+
+    def __repr__(self):
+        return '<Company %r>' % self.name

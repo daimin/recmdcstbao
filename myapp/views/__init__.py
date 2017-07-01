@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 #encoding=utf-8
 
-from front import *
+from customer import *
+from company import *
 from push import *
 from admin import *

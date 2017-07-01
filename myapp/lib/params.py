@@ -8,6 +8,7 @@
 
 from flask import json
 import myapp.lib.token
+from myapp.comm import *
 from flask import json
 import time
 
@@ -105,12 +106,12 @@ def combine_params(params):
             resparams[t] = v
     return resparams 
 
-def response_std(res, status=1, errno=0, errmsg=""):
+def response_std(res, errno=0, errmsg=""):
     """构建返回结果为公司标准方式
     """
     #data = []
     #if res is not None and len(res) > 0:
     #    data.append(res)
-    return json.dumps({"status": status,"data": res,"errormsg": {"errno": errno,"errmsg": errmsg}})
+    return json.dumps({"data": res,"retCode": errno, "retMsg" : errmsg}, cls=AlchemyEncoder, check_circular=False)
     
 
