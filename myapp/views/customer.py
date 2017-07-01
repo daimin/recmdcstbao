@@ -20,18 +20,17 @@ def get_list():
     if 'company_id' in request.form:
         company_id = request.form['company_id']
     if company_id > 0:
-        user_customer_ids = CompanyCustomerModel.query("user_customer_id").filter_by(user_id=user_id, company_id=company_id).all()
+        # user_customer_ids = CompanyCustomerModel.query.filter_by(user_id=user_id, company_id=company_id).all()
+        user_customer_ids = db.session.query(CompanyCustomerModel.user_customer_id).filter_by(user_id=user_id, company_id=company_id).all()
     else:
-        user_customer_ids = CompanyCustomerModel.query('user_customer_id').filter_by(user_id=user_id).all()
+        user_customer_ids = db.session.query(CompanyCustomerModel.user_customer_id).filter_by(user_id=user_id).all()
+    user_customer_id2s = []
 
-    print user_customer_ids
+    for user_customer_id in user_customer_ids:
+        user_customer_id2s.append(user_customer_id[0])
+    user_customers = UserCustomerModel.query.filter(UserCustomerModel.id.in_(user_customer_id2s)).all()
 
-    sql = "SELECT * FROM user_customer WHERE user_id = " + str(user_id)
-    if company_id > 0:
-        sql += " AND id NOT IN (SELECT user_customer_id FROM company_customer WHERE company_id = " + str(company_id) + ")"
-
-    customers = db.session.execute(sql).fetchall()
-    return lib.params.response_std(customers)
+    return lib.params.response_std(user_customers)
 
 @app.route('/api/customer/save', methods=['POST'])
 def save():
