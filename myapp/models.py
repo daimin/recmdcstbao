@@ -40,4 +40,6 @@ class CustomerModel(db.Model):
     gender = db.Column(db.Integer)
     remark = db.Column(db.String(100))
 
+    def __init__(self, name, mobile_tel, gender, remark):
+
 

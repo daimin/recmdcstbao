@@ -4,11 +4,14 @@
 
 from myapp import app
 from myapp import lib
+from flask import request
 
-class Customer():
-    @app.route('/api/customer/save', methods=['POST'])
-    def save(self):
-        return lib.params.response_std([])
+@app.route('/api/customer/save', methods=['POST'])
+def customer_save():
+    # user = UserModel.query.filter_by(mobile_tel='18575516501').first()
+    name = request.form['name']
+    mobile_tel = request.form['mobile_tel']
+    gender = request.form['gender']
+    remark = request.form['remark']
 
-customer = Customer()
-customer.init_app(app)
+    return lib.params.response_std([mobile_tel])

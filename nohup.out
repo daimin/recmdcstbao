@@ -667,3 +667,87 @@ pbkdf2:sha256:50000$nJ2Db8nH$b7fe099ab3917864ee34153faac1bd0f1c52e2331f7f929a29b
 127.0.0.1 - - [01/Jul/2017 11:25:23] "GET /api/customer/save HTTP/1.0" 404 -
 127.0.0.1 - - [01/Jul/2017 11:25:49] "GET /api/customer/save HTTP/1.0" 404 -
 127.0.0.1 - - [01/Jul/2017 11:27:45] "GET /api/customer/save HTTP/1.0" 404 -
+127.0.0.1 - - [01/Jul/2017 11:37:48] "GET /api/customer/save HTTP/1.0" 404 -
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/__init__.py', reloading
+pbkdf2:sha256:50000$dVIMGz4C$d733c8beb9a485291ac575753a70f660a89addc331d96805c4f34a402988365b
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+127.0.0.1 - - [01/Jul/2017 11:38:04] "GET /api/customer/save HTTP/1.0" 200 -
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/front.py', reloading
+pbkdf2:sha256:50000$dZjXYOHy$6cab2492fcc1965f0a57e738a0f1794f031f542370b7c2dc224f2685b2a96c0e
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+127.0.0.1 - - [01/Jul/2017 11:40:16] "GET /api/customer/save HTTP/1.0" 405 -
+127.0.0.1 - - [01/Jul/2017 11:41:32] "GET /test HTTP/1.0" 404 -
+127.0.0.1 - - [01/Jul/2017 11:41:33] "GET /favicon.ico HTTP/1.0" 404 -
+127.0.0.1 - - [01/Jul/2017 11:41:39] "GET /test HTTP/1.0" 404 -
+127.0.0.1 - - [01/Jul/2017 11:41:47] "GET /api HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 11:42:54] "POST /api/customer/save HTTP/1.0" 200 -
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/front.py', reloading
+pbkdf2:sha256:50000$WHdGvb3c$7013c98cf739804df26a42ad2d9defc28bffda19d49d82ecac0f5051fb269609
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/front.py', reloading
+pbkdf2:sha256:50000$3Hplr5Hl$f6714d70f72afc9156482ff80ecbda0f046bc42b40cfad569eabf48e0f0a965f
+ * Restarting with stat
+Traceback (most recent call last):
+  File "index.py", line 6, in <module>
+    from myapp import app
+  File "/webser/python/recmdcstbao/myapp/__init__.py", line 15, in <module>
+    from views import *
+  File "/webser/python/recmdcstbao/myapp/views/__init__.py", line 5, in <module>
+    from front import *
+  File "/webser/python/recmdcstbao/myapp/views/front.py", line 11
+    request.
+           ^
+SyntaxError: invalid syntax
+pbkdf2:sha256:50000$ih377Zpj$2aaf3baf1cec0e14671b7059fe864ab4b40c85c168c53c382037d474ec50f4a5
+ * Running on http://0.0.0.0:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+127.0.0.1 - - [01/Jul/2017 11:48:25] "POST /api/customer/save HTTP/1.0" 200 -
+127.0.0.1 - - [01/Jul/2017 11:48:37] "GET /api/customer/save HTTP/1.0" 405 -
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/front.py', reloading
+pbkdf2:sha256:50000$NLTC9ldO$34314145478492c3c72575d2dc570b31d44149f662839eea2bef3fc09fb90754
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+127.0.0.1 - - [01/Jul/2017 11:49:44] "POST /api/customer/save HTTP/1.0" 200 -
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/front.py', reloading
+pbkdf2:sha256:50000$VMpRDPuP$2c0fed1c5eb639604a65bcf07609ad32818a9eda47a055bc0ac36e7215ed9c36
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/front.py', reloading
+pbkdf2:sha256:50000$2Qwe8xzS$e5fefe7d2a46bd98a06e0271287a2674ad766463686bcee0f380e9987ce45037
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+ * Detected change in '/webser/python/recmdcstbao/myapp/views/front.py', reloading
+pbkdf2:sha256:50000$PmSqbvBV$638a2424024b2ffc606747b91bc6f0ae757755b7a2142ebacd7c7797c97ca08f
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+127.0.0.1 - - [01/Jul/2017 11:51:18] "POST /api/customer/save HTTP/1.0" 200 -
+ * Detected change in '/webser/python/recmdcstbao/myapp/models.py', reloading
+pbkdf2:sha256:50000$znQPjSDo$4ea8ee79c983f9e9491e609001b61129a562b1680b68a3849f2e8b1722018479
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 198-088-730
+ * Detected change in '/webser/python/recmdcstbao/myapp/models.py', reloading
+pbkdf2:sha256:50000$iV80G8v9$35101b5eeaca2cab887fd2c1038c3b6544b97605f4c8729e8c90b76f49609803
+ * Restarting with stat
+Traceback (most recent call last):
+  File "index.py", line 6, in <module>
+    from myapp import app
+  File "/webser/python/recmdcstbao/myapp/__init__.py", line 14, in <module>
+    from models import UserModel
+  File "/webser/python/recmdcstbao/myapp/models.py", line 46
+    
+    ^
+IndentationError: expected an indented block
+pbkdf2:sha256:50000$xjA9kiKY$5f1c3e276d51d346c57076786d31d17b67fe53ef046017140238c965342dedf0
