@@ -15,8 +15,8 @@ def get_company_list():
     return lib.params.response_std(companys)
 
 
-@app.route('/api/company', methods=['POST', 'GET'])
-@app.route('/api/company/<id>', methods=['GET'])
+@app.route('/api/company/', methods=['POST'])
+@app.route('/api/company/<id>', methods=['POST','GET'])
 def get_save_company(id=None):
     if request.method == 'POST':
         company_model = CompanyModel(request.form['name'], request.form['tel'], request.form['remark'], request.form['avatar'])
