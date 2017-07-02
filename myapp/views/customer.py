@@ -43,20 +43,25 @@ def save():
 
 @app.route('/api/customer/recommend', methods=['POST'])
 def recommend():
+    customer_ids = []
+    i = 0
+    while True:
+        if 'customer_ids[' + str(i) + ']' in request.form:
+            customer_ids.append(request.form['customer_ids[' + str(i) + ']'])
+            i = i + 1
+        else:
+            break
+    company_id = request.form['company_id']
+
     try:
-        customer_ids = []
-        i = 0
-        while True:
-            if 'customer_ids[' + str(i) + ']' in request.form:
-                customer_ids.append(request.form['customer_ids[' + str(i) + ']'])
-                i = i + 1
-            else:
-                break
         if len(customer_ids) == 0:
             customer_ids.append(save_customer())
 
-        company_id = request.form['company_id']
         for user_customer_id in customer_ids:
+            cnt = CompanyCustomerModel.query.filter_by(user_id = user_id, company_id = company_id, user_customer_id = user_customer_id).count();
+            if cnt > 0:
+                return lib.params.response_std(user_customer_id, '-1', '该客户已被推荐过')
+
             company_customer = CompanyCustomerModel(user_id, company_id, user_customer_id)
             db.session.add(company_customer)
             db.session.commit()

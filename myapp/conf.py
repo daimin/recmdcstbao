@@ -4,7 +4,7 @@
 
 import os
 
-SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:dai253685@127.0.0.1:3306/recmdcstbao?charset=utf8'
+SQLALCHEMY_DATABASE_URI = 'mysql+pymysql://root:123456@127.0.0.1:3306/recmdcstbao?charset=utf8'
 SQLALCHEMY_TRACK_MODIFICATIONS = True
 
 log_dir = os.path.realpath(os.path.join(os.path.dirname(__file__), "../logs"))
