@@ -5,4 +5,5 @@
 import params
 import token
 import cache
+import sms
 from nethandler import NetHandler
