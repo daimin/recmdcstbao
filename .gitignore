@@ -19,3 +19,4 @@ log/*
 *.s3db
 github.com/
 golang.org/
+/statics/*
