@@ -5,7 +5,7 @@
 from myapp import app, db, user_id
 from myapp import lib
 from myapp.models import UserCustomerModel
-from myapp.models import CompanyCustomerModel
+from myapp.models import CompanyCustomerModel, CompanyModel
 from flask import request
 from flask import render_template
 import sqlalchemy
@@ -65,6 +65,13 @@ def recommend():
             company_customer = CompanyCustomerModel(user_id, company_id, user_customer_id)
             db.session.add(company_customer)
             db.session.commit()
+            customer = UserCustomerModel.query.get(user_customer_id)
+            if customer:
+                confirm_url = 'http://10.5.216.83:5000/api/cst/cf/%d' % company_customer.id
+                print confirm_url
+                ret = lib.sms.send_sms(customer.mobile_tel, ['随心贷', confirm_url])
+                if ret:
+                    print '短信发送成功'
 
         return lib.params.response_std(1)
     except Exception, e:
@@ -81,6 +88,17 @@ def save_customer():
     except Exception, e:
         raise e
 
-@app.route('/customer/confirm', methods=['GET', 'POST'])
-def customer_confirm():
-    return render_template('customer_confirm.html', name='')
+@app.route('/api/cst/cf/<id>', methods=['GET'])
+def customer_confirm(id=None):
+    company_cst_model = CompanyCustomerModel.query.get(id)
+    company = CompanyModel.query.get(company_cst_model.company_id)
+    return render_template('customer_confirm.html', ccid=id, company=company)
+
+@app.route('/api/cst/cfd/<id>', methods=['GET'])
+def customer_confirm_done(id=None):
+    query = db.session.query(CompanyCustomerModel)
+    company_cst_model = query.get(id)
+    company_cst_model.is_show = True
+    db.session.flush()
+    db.session.commit()
+    return render_template('customer_done.html');

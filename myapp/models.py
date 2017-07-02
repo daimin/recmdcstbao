@@ -57,9 +57,11 @@ class CompanyCustomerModel(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer)
     company_id = db.Column(db.Integer)
+    is_show = db.Column(db.Boolean)
     user_customer_id = db.Column(db.Integer)
 
-    def __init__(self, user_id, company_id, user_customer_id):
+    def __init__(self, user_id, company_id, user_customer_id, is_show=False):
         self.user_id = user_id
         self.company_id = company_id
         self.user_customer_id = user_customer_id
+        self.is_show = is_show
