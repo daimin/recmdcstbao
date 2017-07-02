@@ -2,9 +2,11 @@
 # -*- coding: utf-8 -*-
 # encoding=utf-8
 
-from myapp import app, db
+from myapp import app, db, user_id
 from myapp import lib
 from myapp.models import CompanyModel
+from myapp.models import CompanyCustomerModel
+from myapp.models import UserCustomerModel
 from flask import request
 import sqlalchemy
 
@@ -31,3 +33,12 @@ def get_save_company(id=None):
         return lib.params.response_std(1)
     return lib.params.response_std(CompanyModel.query.get(id))
 
+@app.route('/api/company/customer/list', methods=['GET'])
+def get_customer_list():
+    company_customers = CompanyCustomerModel.query.filter_by(user_id = user_id, company_id = request.args['company_id']).all()
+    user_customer_ids = []
+    for company_customer in company_customers:
+        user_customer_ids.append(company_customer.user_customer_id)
+    user_customers = UserCustomerModel.query.filter_by(user_id=user_id).filter(
+        UserCustomerModel.id.in_(user_customer_ids)).all()
+    return lib.params.response_std(user_customers)
