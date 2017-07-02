@@ -35,7 +35,7 @@ def get_save_company(id=None):
 
 @app.route('/api/company/customer/list', methods=['GET'])
 def get_customer_list():
-    company_customers = CompanyCustomerModel.query.filter_by(user_id = user_id, company_id = request.args['company_id']).all()
+    company_customers = CompanyCustomerModel.query.filter_by(user_id = user_id, company_id = request.args['company_id'], is_show = 1).all()
     user_customer_ids = []
     for company_customer in company_customers:
         user_customer_ids.append(company_customer.user_customer_id)
